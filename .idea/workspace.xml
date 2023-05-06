@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="022cd9c9-de06-4810-bb85-57d8b7250261" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/umi-test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/access.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ClientManagement/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Guide/Guide.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Guide/Guide.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Guide/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Login/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/constants/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/global.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Access/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/ClientManagement/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/EmployeeManagement/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Home/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Home/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Login/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Table/components/CreateForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Table/components/UpdateForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Table/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/demo/UserController.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/demo/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/demo/typings.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/employee/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/format.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2Ozebgv8DLk1rkrMGWW5Kka17Vu" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="compactDirectories" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="pnpm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="D:\TEfrp\project\umi-test\node_modules\prettier" />
+    <property name="ts.external.directory.path" value="D:\TEfrp\project\umi-test\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\TEfrp\project\umi-test\src\components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\TEfrp\project\umi-test\src\components\EmployeeManagement" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="022cd9c9-de06-4810-bb85-57d8b7250261" name="Changes" comment="" />
+      <created>1682567911873</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1682567911873</updated>
+      <workItem from="1682567914507" duration="9132000" />
+      <workItem from="1682835656102" duration="9726000" />
+      <workItem from="1683031820868" duration="2175000" />
+      <workItem from="1683199600259" duration="4278000" />
+      <workItem from="1683332778614" duration="9715000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
