@@ -1,7 +1,7 @@
 // 运行时配置
-import { SettingTwoTone } from '@ant-design/icons';
 import { history } from '@umijs/max';
 import { message } from 'antd';
+import logo from './assets/logo.svg';
 // 全局初始化数据配置，用于 Layout 用户信息和权限初始化
 // 更多信息见文档：https://umijs.org/docs/api/runtime-config#getinitialstate
 export async function getInitialState() {
@@ -15,7 +15,10 @@ export async function getInitialState() {
 
 export const layout = ({ initialState }) => {
   return {
-    logo: 'https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg',
+    title: '4s维修保养全流程管理系统',
+    logo,
+    favicon:logo,
+    siderWidth:280,
     menu: {
       locale: false,
       // 每当 initialState?.currentUser?.userid 发生修改时重新执行 request
@@ -48,6 +51,7 @@ export const layout = ({ initialState }) => {
       //   return menuData;
       // },
     },
+
     logout: () => {
       localStorage.removeItem('user');
       history.push('/login');

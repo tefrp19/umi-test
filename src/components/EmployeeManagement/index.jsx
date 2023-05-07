@@ -2,6 +2,7 @@ import { getEmployees } from '@/services/employee';
 import { Space, Table, Tag, Switch, Input, Button, Popconfirm } from 'antd';
 import { useEffect, useState } from 'react';
 import AddEmployee from './AddEmployee';
+import { PageContainer } from '@ant-design/pro-components';
 
 const onChange = (checked) => {
   console.log(`switch to ${checked}`);
@@ -133,12 +134,16 @@ function EmployeeManagement() {
 
   return (
     <>
-      <Space style={{ marginBottom: '30px' }}>
-        <Input placeholder='搜索账号' />
-        <Input placeholder='搜索姓名' />
-        <AddEmployee />
-      </Space>
-      <Table columns={columns} dataSource={data} />
+      <PageContainer>
+
+        <Space style={{ marginBottom: '30px' }}>
+          <Input placeholder='搜索账号' />
+          <Input placeholder='搜索姓名' />
+          <AddEmployee />
+        </Space>
+        <Table columns={columns} dataSource={data} />
+      </PageContainer>
+
     </>
   );
 }

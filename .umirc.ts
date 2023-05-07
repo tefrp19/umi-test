@@ -9,9 +9,8 @@ export default defineConfig({
   model: {},
   initialState: {},
   request: {},
-  layout: {
-    title: '4s维修保养全流程管理系统',
-  },
+  layout: {},
+  favicons:['/logo.ico'],
   routes: [
     {
       path: '/login',
@@ -29,11 +28,13 @@ export default defineConfig({
       component: './Home',
     },
     {
+      path:'/system',
+      redirect:'/system/accessManagement'
+    },
+    {
       name: '系统管理',
       path: '/system',
       icon: 'SettingTwoTone',
-      // icon: 'HomeOutlined',
-
       routes: [
         {
           name: '权限管理',
@@ -68,6 +69,10 @@ export default defineConfig({
     //   component: './Table',
     // },
     {
+      path: '/client',
+      redirect: '/client/clientManagement',
+    },
+    {
       name: '资料管理',
       path: '/client',
       icon: 'ContactsTwoTone',
@@ -80,7 +85,32 @@ export default defineConfig({
         {
           name: '汽车管理',
           path: 'carManagement',
-          // component: './ClientManagement',
+          component: './CarManagement',
+        },
+      ],
+    },
+    {
+      path: '/store',
+      redirect: '/store/carPartManagement',
+    },
+    {
+      name: '仓库管理',
+      path: '/store',
+      icon: 'ProjectTwoTone',
+      routes: [
+        {
+          // path: '/',
+          // redirect:'carPartManagement'
+        },
+        {
+          name: '配件管理',
+          path: 'carPartManagement',
+          component: './CarPartManagement',
+        },
+        {
+          name: '配件订单管理',
+          path: 'carPartOrderManagement',
+          component: './CarPartOrderManagement',
         },
       ],
     },

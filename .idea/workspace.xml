@@ -2,36 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="022cd9c9-de06-4810-bb85-57d8b7250261" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/umi-test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/access.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/.gitkeep" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ClientManagement/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Guide/Guide.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Guide/Guide.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Guide/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Login/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/constants/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/global.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Access/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/ClientManagement/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/EmployeeManagement/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Home/index.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Home/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Login/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Table/components/CreateForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Table/components/UpdateForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Table/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/demo/UserController.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/demo/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/demo/typings.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/employee/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/format.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CarManagement/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CarPartManagement/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CarPartOrderManagement/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/CarManagement/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/CarPartManagement/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/CarPartOrderManagement/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.umirc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.umirc.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ClientManagement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ClientManagement/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EmployeeManagement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EmployeeManagement/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +23,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="2Ozebgv8DLk1rkrMGWW5Kka17Vu" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -68,8 +59,13 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\TEfrp\project\umi-test\src\components" />
+      <recent name="D:\TEfrp\project\umi-test\src\pages" />
+      <recent name="D:\TEfrp\project\umi-test\src\pages\CarPartManagement" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\TEfrp\project\umi-test\src\assets" />
+      <recent name="D:\TEfrp\project\umi-test" />
+      <recent name="D:\TEfrp\project\umi-test\src\public" />
       <recent name="D:\TEfrp\project\umi-test\src\components\EmployeeManagement" />
     </key>
   </component>
@@ -102,7 +98,7 @@
       <workItem from="1682835656102" duration="9726000" />
       <workItem from="1683031820868" duration="2175000" />
       <workItem from="1683199600259" duration="4278000" />
-      <workItem from="1683332778614" duration="9715000" />
+      <workItem from="1683332778614" duration="39247000" />
     </task>
     <servers />
   </component>
