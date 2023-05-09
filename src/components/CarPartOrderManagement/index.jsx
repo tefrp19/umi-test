@@ -14,34 +14,6 @@ const columns = [
     key: 'id',
   },
   {
-    title: '配件名',
-    dataIndex: 'carPart',
-    key: 'carPart',
-  },
-  {
-    title: '供应商',
-    dataIndex: 'firm',
-    key: 'firm',
-  },
-  {
-    title: '入库数量',
-    dataIndex: 'number',
-    key: 'number',
-    sorter: (a, b) => a.number - b.number,
-  },
-  {
-    title: '采购单价',
-    dataIndex: 'price',
-    key: 'price',
-    sorter: (a, b) => a.price - b.price,
-  },
-  {
-    title: '总价',
-    dataIndex: 'total',
-    key: 'total',
-    sorter: (a, b) => a.total - b.total,
-  },
-  {
     title: '状态',
     dataIndex: 'status',
     key: 'status',
@@ -95,9 +67,11 @@ const columns = [
   {
     title: '操作',
     key: 'action',
-    render: () => (
+    render: (_, record) => (
       <Space size='middle'>
-        <a>修改信息</a>
+        <Button onClick={() => {
+          history.push(`/store/carPartOrderDetail/${record.id}`);
+        }}>查看订单</Button>
         <Popconfirm title='确认删除？' onConfirm={() => {
         }}>
           <Button type='text' danger>
@@ -113,11 +87,6 @@ const data = [
   {
     id: 1,
     key: 1,
-    carPart: '奔驰A级空气滤清器（2.0T 2.7L 3.5L）',
-    firm: '绵阳市斯普润市政工程建设有限公司',
-    number: 10,
-    price: 200,
-    total: 2000,
     status: '申请中',
     create_time: '2023-04-22T13:27:20.000Z',
     finish_time: null,
@@ -126,11 +95,6 @@ const data = [
   {
     id: 2,
     key: 2,
-    carPart: '奔驰S300发动机油底壳',
-    firm: '绵阳市燊达机械加工有限公司',
-    number: 20,
-    price: 100,
-    total: 2000,
     status: '已完成',
     create_time: '2023-04-21T13:27:20.000Z',
     finish_time: '2023-04-21T13:27:20.000Z',
@@ -139,11 +103,6 @@ const data = [
   {
     id: 3,
     key: 3,
-    carPart: '奔驰A级空气滤清器（2.0T 2.7L 3.5L）',
-    firm: '绵阳市斯普润市政工程建设有限公司',
-    number: 10,
-    price: 200,
-    total: 2000,
     status: '申请成功',
     create_time: '2023-04-21T15:27:20.000Z',
     finish_time: null,
@@ -170,9 +129,9 @@ function EmployeeManagement() {
       <PageContainer>
 
         <Space style={{ marginBottom: '30px' }}>
-          <Input placeholder='搜索配件名称' />
-          <Input placeholder='搜索配件备注' />
-          <Button type='primary'>新增配件</Button>
+          <Input placeholder='搜索订单id' />
+          <Input placeholder='搜索订单备注' />
+          <Button type='primary'>新增订单</Button>
         </Space>
         <Table columns={columns} dataSource={data} />
 

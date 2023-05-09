@@ -8,7 +8,7 @@ const onChange = (checked) => {
 };
 const columns = [
   {
-    title: '客户id',
+    title: '客户编号',
     dataIndex: 'id',
     key: 'id',
   },

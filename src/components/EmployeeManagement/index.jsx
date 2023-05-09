@@ -9,7 +9,7 @@ const onChange = (checked) => {
 };
 const columns = [
   {
-    title: '员工id',
+    title: '员工编号',
     dataIndex: 'id',
     key: 'id',
   },

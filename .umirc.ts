@@ -10,7 +10,7 @@ export default defineConfig({
   initialState: {},
   request: {},
   layout: {},
-  favicons:['/logo.ico'],
+  favicons: ['/logo.ico'],
   routes: [
     {
       path: '/login',
@@ -28,8 +28,8 @@ export default defineConfig({
       component: './Home',
     },
     {
-      path:'/system',
-      redirect:'/system/accessManagement'
+      path: '/system',
+      redirect: '/system/accessManagement',
     },
     {
       name: '系统管理',
@@ -111,6 +111,10 @@ export default defineConfig({
           name: '配件订单管理',
           path: 'carPartOrderManagement',
           component: './CarPartOrderManagement',
+        },
+        {
+          path: 'carPartOrderDetail/:id',
+          component: '@/components/CarPartOrderManagement/CarPartOrderDetail',
         },
       ],
     },

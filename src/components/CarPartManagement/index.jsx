@@ -9,6 +9,11 @@ const onChange = (checked) => {
 };
 const columns = [
   {
+    title: '配件编号',
+    dataIndex: 'id',
+    key: 'id',
+  },
+  {
     title: '配件名称',
     dataIndex: 'name',
     key: 'name',
@@ -42,6 +47,7 @@ const columns = [
     dataIndex: 'number',
     key: 'number',
     sorter: (a, b) => a.number - b.number,
+
   },
   {
     title: '单位',
