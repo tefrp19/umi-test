@@ -117,12 +117,18 @@ export default defineConfig({
       name: '业务流程管理',
       path: '/business',
       icon: 'ScheduleTwoTone',
-      // routes: [
-      //   {
-      //     path: 'businessManagement',
-      //     component: './BusinessManagement',
-      //   },
-      // ],
+      routes: [
+        {
+          name: '客户工单管理',
+          path: 'businessManagement',
+          component: './BusinessManagement',
+        },
+        {
+          name: '事件参数管理',
+          path: 'eventManagement',
+          component: './EventManagement',
+        },
+      ],
     },
     {
       name: '数据分析',
