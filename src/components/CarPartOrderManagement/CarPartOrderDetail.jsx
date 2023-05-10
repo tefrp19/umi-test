@@ -40,7 +40,7 @@ export default function() {
               }}>
                 订单详情
               </div>
-              <div style={{ flex: '1' }}/>
+              <div style={{ flex: '1' }} />
               <Space>
                 <Button type='primary'>
                   审核订单
@@ -58,9 +58,13 @@ export default function() {
         }>
 
           {/*订单详情表格*/}
-          <OrderDetailTable/>
-          {/*员工操作信息表格*/}
-          <EmployeeActionTable/>
+          <Card style={{marginBottom:'20px'}}>
+            <OrderDetailTable />
+          </Card>
+          <Card>
+            {/*员工操作信息表格*/}
+            <EmployeeActionTable />
+          </Card>
         </Card>
 
 

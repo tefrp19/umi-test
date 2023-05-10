@@ -59,16 +59,6 @@ export default defineConfig({
       ],
     },
     {
-      name: '权限演示',
-      path: '/access',
-      component: './Access',
-    },
-    // {
-    //   name: ' CRUD 示例',
-    //   path: '/table',
-    //   component: './Table',
-    // },
-    {
       path: '/client',
       redirect: '/client/clientManagement',
     },
@@ -86,6 +76,11 @@ export default defineConfig({
           name: '汽车管理',
           path: 'carManagement',
           component: './CarManagement',
+        },
+        {
+          name: '保险管理',
+          path: 'insuranceManagement',
+          component: './InsuranceManagement',
         },
       ],
     },
@@ -117,6 +112,28 @@ export default defineConfig({
           component: '@/components/CarPartOrderManagement/CarPartOrderDetail',
         },
       ],
+    },
+    {
+      name: '业务流程管理',
+      path: '/business',
+      icon: 'ScheduleTwoTone',
+      // routes: [
+      //   {
+      //     path: 'businessManagement',
+      //     component: './BusinessManagement',
+      //   },
+      // ],
+    },
+    {
+      name: '数据分析',
+      path: '/analysis',
+      icon: 'PieChartTwoTone',
+      // routes: [
+      //   {
+      //     path: 'businessManagement',
+      //     component: './BusinessManagement',
+      //   },
+      // ],
     },
   ],
   proxy: {
