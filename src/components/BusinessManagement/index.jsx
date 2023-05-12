@@ -72,6 +72,12 @@ const columns = [
     sorter: (a, b) => new Date(a.create_time) - new Date(b.create_time),
   },
   {
+    title: '总金额',
+    dataIndex: 'total',
+    key: 'total',
+    sorter: (a, b) => a.total -b.total,
+  },
+  {
     title: '操作',
     key: 'action',
     render: (_, record) => (
