@@ -8,34 +8,66 @@ const onChange = (checked) => {
 };
 const columns = [
   {
-    title: '汽车编号',
+    title: '保险编号',
     dataIndex: 'id',
     key: 'id',
   },
   {
-    title: '车牌号',
-    dataIndex: 'number',
-    key: 'number',
+    title: '保险名称',
+    dataIndex: 'name',
+    key: 'name',
+    filters:[
+      {
+        text:'第三者责任险',
+        value:'第三者责任险',
+      },
+      {
+        text:'车辆损失险',
+        value:'车辆损失险',
+      },
+    ],
+    onFilter: (value, record) => {
+      // console.log(value);
+      // console.log(record);
+      // record.name.indexOf(value) === 0
+    },
   },
   {
-    title: '车主名',
-    dataIndex: 'clientName',
-    key: 'clientName',
-  },
-  {
-    title: '车主id',
+    title: '车主编号',
     dataIndex: 'clientId',
     key: 'clientId',
   },
   {
-    title: '车型',
-    dataIndex: 'model',
-    key: 'model',
+    title: '车主姓名',
+    dataIndex: 'clientName',
+    key: 'clientName',
   },
   {
-    title: '购买时间',
-    dataIndex: 'purchase_time',
-    key: 'purchase_time',
+    title: '车牌号',
+    dataIndex: 'car_number',
+    key: 'car_number',
+  },
+
+  {
+    title: '开始日期',
+    dataIndex: 'start_date',
+    key: 'start_date',
+    render: (text) => {
+      if (!text) return null;
+      return (new Date(text)).toLocaleDateString();
+    },
+    sorter: (a, b) => new Date(a.start_date) - new Date(b.start_date),
+  },
+  {
+    title: '到期日期',
+    dataIndex: 'end_date',
+    key: 'end_date',
+    render: (text) => {
+      // 临期提示
+      if (!text) return null;
+      return (new Date(text)).toLocaleDateString();
+    },
+    sorter: (a, b) => new Date(a.end_date) - new Date(b.end_date),
   },
   {
     title: '操作',
@@ -58,20 +90,22 @@ const data = [
   {
     id: 1,
     key: 1,
-    number: '川B12345',
+    name: '第三者责任险',
+    clientId: 1,
     clientName: '张三',
-    clientId: '1',
-    model: 'xxxxx不能是特斯拉，特斯拉没有4s店',
-    purchase_time: '2023/5/6 15:38:16',
+    car_number:'川B123456',
+    start_date: '2023-5-06',
+    end_date: '2024-5-06',
   },
   {
     id: 2,
     key: 2,
-    number: '川B66666',
+    name: '车辆损失险',
+    clientId: 2,
     clientName: '李四',
-    clientId: '2',
-    model: 'xxx',
-    purchase_time: '2023/5/6 15:38:16',
+    car_number:'川B666666',
+    start_date: '2023-5-07',
+    end_date: '2024-5-08',
   },
 
 ];
@@ -91,12 +125,13 @@ export default function() {
       <PageContainer>
 
         <Card style={{ marginBottom: '30px' }}>
-
-          <Space style={{ marginBottom: '30px' }}>
-            <Input placeholder='搜索客户id' />
-            <Input placeholder='搜索姓名' />
-            <Button type='primary'>查询</Button>
-            <Button type='primary'>添加客户</Button>
+          <Space>
+            <Input placeholder='搜索保险编号' />
+            <Input placeholder='搜索车主编号' />
+            <Input placeholder='搜索车主姓名' />
+            <Input placeholder='搜索车牌号' />
+            <Button>查询</Button>
+            <Button type='primary'>新增保险</Button>
           </Space>
         </Card>
 

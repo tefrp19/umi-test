@@ -27,7 +27,7 @@ const columns = [
       },
 
     ],
-    onFilter: (value, record) => record.isRegular===value,
+    onFilter: (value, record) => record.isRegular === value,
   },
   {
     title: '事件触发时间（天）',
@@ -39,7 +39,7 @@ const columns = [
     title: '状态',
     dataIndex: 'status',
     key: 'status',
-    render: (status) => <Switch checked={!!status} onChange={onChange} />,
+    render: (status, record) => record.isRegular ? <Switch checked={!!status} onChange={onChange} /> : null,
   },
   {
     title: '操作',
@@ -62,7 +62,7 @@ const data = [
   {
     id: 1,
     key: 1,
-    name: '保养到期',
+    name: '延长保修期',
     isRegular: 1,
     trigger: 30,
     status: 1,
@@ -70,7 +70,7 @@ const data = [
   {
     id: 2,
     key: 2,
-    name: '保修到期',
+    name: '延长保险期',
     isRegular: 1,
     trigger: 30,
     status: 0,
@@ -78,15 +78,15 @@ const data = [
   {
     id: 3,
     key: 3,
-    name: '保险到期',
-    isRegular: 1,
-    trigger: 60,
+    name: '保养',
+    isRegular: 0,
+    trigger: null,
     status: 1,
   },
   {
     id: 4,
     key: 4,
-    name: '保养',
+    name: '维修',
     isRegular: 0,
     trigger: null,
     status: 1,
@@ -94,14 +94,6 @@ const data = [
   {
     id: 5,
     key: 5,
-    name: '维修',
-    isRegular: 0,
-    trigger: null,
-    status: 1,
-  },
-  {
-    id: 6,
-    key: 6,
     name: '购买新保险',
     isRegular: 0,
     trigger: null,

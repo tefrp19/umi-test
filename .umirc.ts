@@ -26,6 +26,7 @@ export default defineConfig({
       name: '首页',
       path: '/home',
       component: './Home',
+      icon: 'HomeTwoTone',
     },
     {
       path: '/system',
@@ -40,14 +41,14 @@ export default defineConfig({
           name: '权限管理',
           path: 'accessManagement',
           icon: 'SecurityScanTwoTone',
-          // component: './EmployeeManagement',
+          component: './AccessManagement',
           // access: 'canReadEmployeeManagement',
         },
         {
           name: '部门管理',
           path: 'departmentManagement',
           icon: 'HomeOutlined',
-          // component: './EmployeeManagement',
+          component: './DepartmentManagement',
           // access: 'canReadEmployeeManagement',
         },
         {
@@ -94,10 +95,6 @@ export default defineConfig({
       icon: 'ProjectTwoTone',
       routes: [
         {
-          // path: '/',
-          // redirect:'carPartManagement'
-        },
-        {
           name: '配件管理',
           path: 'carPartManagement',
           component: './CarPartManagement',
@@ -124,6 +121,11 @@ export default defineConfig({
           component: './BusinessManagement',
         },
         {
+          path: 'businessDetail/:id',
+          // component: '@/components/CarPartOrderManagement/CarPartOrderDetail',
+          component: '@/components/BusinessManagement/BusinessDetail',
+        },
+        {
           name: '事件参数管理',
           path: 'eventManagement',
           component: './EventManagement',
@@ -136,6 +138,8 @@ export default defineConfig({
       icon: 'PieChartTwoTone',
       // routes: [
       //   {
+      //1.客户数据分析：客户流失分析、客户回访分析（评价星级、词云图）、客户保养数据分析（x轴时间，y轴次数，次数多或少的月份考虑做活动）
+      //2.财务收付款分析
       //     path: 'businessManagement',
       //     component: './BusinessManagement',
       //   },

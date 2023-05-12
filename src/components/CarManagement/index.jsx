@@ -18,7 +18,7 @@ const columns = [
     key: 'number',
   },
   {
-    title: '车主名',
+    title: '车主姓名',
     dataIndex: 'clientName',
     key: 'clientName',
   },
@@ -36,6 +36,22 @@ const columns = [
     title: '购买时间',
     dataIndex: 'purchase_time',
     key: 'purchase_time',
+    render: (text) => {
+      if (!text) return null;
+      return (new Date(text)).toLocaleString();
+    },
+    sorter: (a, b) => new Date(a.purchase_time) - new Date(b.purchase_time),
+  },
+  {
+    title: '保修到期时间',
+    dataIndex: 'warranty_time',
+    key: 'warranty_time',
+    render: (text) => {
+      // 临期提示
+      if (!text) return null;
+      return (new Date(text)).toLocaleString();
+    },
+    sorter: (a, b) => new Date(a.warranty_time) - new Date(b.warranty_time),
   },
   {
     title: '操作',
@@ -62,7 +78,8 @@ const data = [
     clientName: '张三',
     clientId: '1',
     model: 'xxxxx不能是特斯拉，特斯拉没有4s店',
-    purchase_time: '2023/5/6 15:38:16',
+    purchase_time: '2023-04-22T13:27:20.000Z',
+    warranty_time: '2024-04-23T13:27:20.000Z',
   },
   {
     id: 2,
@@ -71,12 +88,13 @@ const data = [
     clientName: '李四',
     clientId: '2',
     model: 'xxx',
-    purchase_time: '2023/5/6 15:38:16',
+    purchase_time: '2023-04-23T13:27:20.000Z',
+    warranty_time: '2024-04-25T13:27:20.000Z',
   },
 
 ];
 
-function EmployeeManagement() {
+export default function EmployeeManagement() {
   const [dataSource, useDataSource] = useState([]);
 
   useEffect(() => {
@@ -90,19 +108,21 @@ function EmployeeManagement() {
     <>
       <PageContainer>
         <Card style={{ marginBottom: '30px' }}>
-          <Space >
-            <Input placeholder='搜索客户id' />
-            <Input placeholder='搜索姓名' />
-            <Button type='primary'>添加客户</Button>
+          <Space>
+            <Input placeholder='搜索汽车编号' />
+            <Input placeholder='搜索车牌号' />
+            <Input placeholder='搜索车主姓名' />
+            <Input placeholder='搜索车主编号' />
+            <Button type='primary'>添加汽车</Button>
           </Space>
         </Card>
-        <Table columns={columns} dataSource={data} />
+        <Card>
+          <Table columns={columns} dataSource={data} />
+        </Card>
 
       </PageContainer>
 
     </>
   );
 }
-
-export default EmployeeManagement;
 

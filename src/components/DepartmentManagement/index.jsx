@@ -1,6 +1,7 @@
 import { getEmployees } from '@/services/employee';
 import { Space, Table, Tag, Switch, Input, Button, Popconfirm, Card } from 'antd';
 import { useEffect, useState } from 'react';
+import AddDepartment from './AddDepartment';
 import { PageContainer } from '@ant-design/pro-components';
 
 const onChange = (checked) => {
@@ -8,55 +9,32 @@ const onChange = (checked) => {
 };
 const columns = [
   {
-    title: '客户编号',
+    title: '部门编号',
     dataIndex: 'id',
     key: 'id',
   },
   {
-    title: '姓名',
+    title: '名称',
     dataIndex: 'name',
     key: 'name',
-  },
-  {
-    title: '性别',
-    dataIndex: 'gender',
-    key: 'gender',
-    render: (gender) => gender ? '男' : '女',
-  },
-  {
-    title: '年龄',
-    dataIndex: 'age',
-    key: 'age',
-    defaultSortOrder: 'descend',
-    sorter: (a, b) => a.age - b.age,
-  },
-  {
-    title: '手机号',
-    dataIndex: 'phone_number',
-    key: 'phone_number',
-  },
-  {
-    title: '地址',
-    dataIndex: 'address',
-    key: 'address',
   },
   {
     title: '创建时间',
     dataIndex: 'create_time',
     key: 'create_time',
-    render: (text) => {
-      if (!text) return null;
-      return (new Date(text)).toLocaleString();
-    },
-    sorter: (a, b) => new Date(a.create_time) - new Date(b.create_time),
   },
-
+  {
+    title: '备注',
+    dataIndex: 'notes',
+    key: 'notes',
+  },
   {
     title: '操作',
     key: 'action',
     render: () => (
       <Space size='middle'>
         <a>修改信息</a>
+        <a>分配权限</a>
         <Popconfirm title='确认删除？' onConfirm={() => {
         }}>
           <Button type='text' danger>
@@ -72,23 +50,46 @@ const data = [
   {
     id: 1,
     key: 1,
-    name: 'JohnBrown',
-    gender: 0,
-    age: 24,
-    phone_number: '15881999863',
-    address: '四川省绵阳市涪城区xxx小区',
-    create_time: '2023-04-22T13:27:20.000Z',
+    name: 'admin',
+    create_time: '2023/5/6 15:33:12',
+    notes: '管理员',
   },
   {
     id: 2,
     key: 2,
-    name: 'JimGreen',
-    gender: 1,
-    age: 34,
-    phone_number: '15881999863',
-    address: '四川省绵阳市涪城区xxxxxx小区',
-    create_time: '2023-04-23T13:27:20.000Z',
+    name: '人事部',
+    create_time: '2023/5/6 15:33:12',
+    notes: '负责xxxxx',
   },
+  {
+    id: 3,
+    key: 3,
+    name: '客户部',
+    create_time: '2023/5/6 15:33:12',
+    notes: '负责xxxxx',
+  },
+  {
+    id: 4,
+    key: 4,
+    name: '采购部',
+    create_time: '2023/5/6 15:33:12',
+    notes: '负责xxxxx',
+  },
+  {
+    id: 5,
+    key: 5,
+    name: '售后部',
+    create_time: '2023/5/6 15:33:12',
+    notes: '负责xxxxx',
+  },
+  {
+    id: 6,
+    key: 6,
+    name: '财务部',
+    create_time: '2023/5/6 15:33:12',
+    notes: '负责xxxxx',
+  },
+
 
 ];
 
@@ -107,10 +108,7 @@ function EmployeeManagement() {
       <PageContainer>
         <Card style={{ marginBottom: '30px' }}>
           <Space>
-            <Input placeholder='搜索客户编号' />
-            <Input placeholder='搜索姓名' />
-            <Input placeholder='搜索客户地址' />
-            <Button type='primary'>添加客户</Button>
+            <AddDepartment />
           </Space>
         </Card>
         <Card>

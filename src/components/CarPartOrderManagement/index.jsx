@@ -1,5 +1,5 @@
 import { getEmployees } from '@/services/employee';
-import { Space, Table, Tag, Switch, Input, Button, Popconfirm } from 'antd';
+import { Space, Table, Tag, Switch, Input, Button, Popconfirm, Card } from 'antd';
 import { useEffect, useState } from 'react';
 import { history, useSearchParams } from '@umijs/max';
 import { PageContainer, PageHeader } from '@ant-design/pro-components';
@@ -127,13 +127,16 @@ function EmployeeManagement() {
   return (
     <>
       <PageContainer>
-
-        <Space style={{ marginBottom: '30px' }}>
-          <Input placeholder='搜索订单id' />
-          <Input placeholder='搜索订单备注' />
-          <Button type='primary'>新增订单</Button>
-        </Space>
-        <Table columns={columns} dataSource={data} />
+        <Card style={{ marginBottom: '30px' }}>
+          <Space>
+            <Input placeholder='搜索订单id' />
+            <Input placeholder='搜索订单备注' />
+            <Button type='primary'>新增订单</Button>
+          </Space>
+        </Card>
+        <Card>
+          <Table columns={columns} dataSource={data} />
+        </Card>
 
       </PageContainer>
     </>

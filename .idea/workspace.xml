@@ -2,12 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="022cd9c9-de06-4810-bb85-57d8b7250261" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/EventManagement/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/EventManagement/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/AccessManagement/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/BusinessManagement/BusinessDetail.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/BusinessManagement/BusinessDetailTable.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/BusinessManagement/EmployeeActionTable.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/DepartmentManagement/AddDepartment.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/DepartmentManagement/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/AccessManagement/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/DepartmentManagement/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.umirc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.umirc.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/BusinessManagement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BusinessManagement/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CarManagement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CarManagement/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CarPartManagement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CarPartManagement/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CarPartOrderManagement/CarPartOrderDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CarPartOrderManagement/CarPartOrderDetail.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CarPartOrderManagement/OrderDetailTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CarPartOrderManagement/OrderDetailTable.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CarPartOrderManagement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CarPartOrderManagement/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ClientManagement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ClientManagement/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EmployeeManagement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EmployeeManagement/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EventManagement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EventManagement/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InsuranceManagement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InsuranceManagement/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +55,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="pnpm" />
@@ -51,8 +65,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\TEfrp\project\umi-test\src\components" />
       <recent name="D:\TEfrp\project\umi-test\src\pages" />
+      <recent name="D:\TEfrp\project\umi-test\src\components" />
+      <recent name="D:\TEfrp\project\umi-test\src\components\BusinessManagement" />
       <recent name="D:\TEfrp\project\umi-test\src\pages\CarPartManagement" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -93,7 +108,9 @@
       <workItem from="1683199600259" duration="4278000" />
       <workItem from="1683332778614" duration="41447000" />
       <workItem from="1683595653831" duration="9779000" />
-      <workItem from="1683677970446" duration="8612000" />
+      <workItem from="1683677970446" duration="17455000" />
+      <workItem from="1683765611476" duration="4418000" />
+      <workItem from="1683884029819" duration="7196000" />
     </task>
     <servers />
   </component>
