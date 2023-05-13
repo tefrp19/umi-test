@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="022cd9c9-de06-4810-bb85-57d8b7250261" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Home/Line.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Home/RightChart.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Home/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BusinessManagement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BusinessManagement/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home/index.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.umirc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.umirc.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DepartmentManagement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DepartmentManagement/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EmployeeManagement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EmployeeManagement/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/RightChart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/RightChart.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +96,8 @@
       <workItem from="1683595653831" duration="9779000" />
       <workItem from="1683677970446" duration="17455000" />
       <workItem from="1683765611476" duration="4418000" />
-      <workItem from="1683884029819" duration="15173000" />
+      <workItem from="1683884029819" duration="15567000" />
+      <workItem from="1683937641217" duration="3563000" />
     </task>
     <servers />
   </component>

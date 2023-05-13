@@ -71,7 +71,7 @@ const data = [
   {
     id: 4,
     key: 4,
-    name: '采购部',
+    name: '配件部',
     create_time: '2023/5/6 15:33:12',
     notes: '负责xxxxx',
   },

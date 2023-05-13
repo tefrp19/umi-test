@@ -22,7 +22,7 @@ function PieChart() {
       value: 20,
     },
     {
-      department: '采购部',
+      department: '配件部',
       value: 10,
     },
     {
@@ -73,7 +73,7 @@ function BarChart() {
       value: 20,
     },
     {
-      department: '采购部',
+      department: '配件部',
       value: 10,
     },
     {

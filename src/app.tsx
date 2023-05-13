@@ -15,10 +15,10 @@ export async function getInitialState() {
 
 export const layout = ({ initialState }) => {
   return {
-    title: '4s维修保养全流程管理系统',
+    title: '4s店维修保养全流程综合管理系统',
     logo,
     favicon:logo,
-    siderWidth:280,
+    siderWidth:310,
     menu: {
       locale: false,
       // 每当 initialState?.currentUser?.userid 发生修改时重新执行 request

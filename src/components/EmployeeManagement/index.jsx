@@ -59,7 +59,7 @@ const columns = [
     },
   },
   {
-    title: '状态',
+    title: '是否启用账号',
     dataIndex: 'status',
     key: 'status',
     render: (status) => <Switch checked={!!status} onChange={onChange} />,
