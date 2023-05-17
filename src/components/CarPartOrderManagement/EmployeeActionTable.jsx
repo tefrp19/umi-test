@@ -36,7 +36,7 @@ const data = [
     key: 1,
     EmployeeId: 1,
     EmployeeName: '张三',
-    role:'售后部',
+    role:'配件部',
     action_time: '2023-04-21T13:27:20.000Z',
     notes: '申请采购',
   },

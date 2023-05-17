@@ -38,6 +38,21 @@ const columns = [
     title: '创建时间',
     dataIndex: 'create_time',
     key: 'create_time',
+    render: (text) => {
+      if (!text) return null;
+      return (new Date(text)).toLocaleString();
+    },
+    sorter: (a, b) => new Date(a.create_time) - new Date(b.create_time),
+  },
+  {
+    title: '更新时间',
+    dataIndex: 'update_time',
+    key: 'update_time',
+    render: (text) => {
+      if (!text) return null;
+      return (new Date(text)).toLocaleString();
+    },
+    sorter: (a, b) => new Date(a.update_time) - new Date(b.update_time),
   },
   {
     title: '部门',
@@ -47,9 +62,22 @@ const columns = [
       {
         text: '人事部',
         value: '人事部',
-      }, {
+      },
+      {
         text: '客户部',
         value: '客户部',
+      },
+      {
+        text: '配件部',
+        value: '配件部',
+      },
+      {
+        text: '售后部',
+        value: '售后部',
+      },
+      {
+        text: '财务部',
+        value: '财务部',
       },
     ],
     onFilter: (value, record) => {
@@ -90,7 +118,8 @@ const data = [
     nickname: 'JohnBrown',
     gender: 0,
     phone_number: '15881999863',
-    create_time: '2023/5/6 15:33:12',
+    create_time: '2023-04-23T15:27:20.000Z',
+    update_time: '2023-04-23T15:27:20.000Z',
     department: '人事部',
     status: 1,
 
@@ -100,9 +129,10 @@ const data = [
     key: 2,
     username: 'test2',
     nickname: 'JimGreen',
-    gender: 1,
+    gender: 0,
     phone_number: '19114031807',
-    create_time: '2023/5/6 15:33:12',
+    create_time: '2023-04-23T15:27:20.000Z',
+    update_time: '2023-04-23T15:27:20.000Z',
     department: '客户部',
     status: 0,
   },
@@ -116,9 +146,10 @@ for (let i = 3; i < 100; i++) {
     nickname: 'JimGreen',
     gender: 1,
     phone_number: '19114031807',
-    create_time: '2023/5/6 15:33:12',
+    create_time: '2023-04-23T15:27:20.000Z',
+    update_time: '2023-04-23T15:27:20.000Z',
     department: '客户部',
-    status: 0,
+    status: 1,
   });
 }
 

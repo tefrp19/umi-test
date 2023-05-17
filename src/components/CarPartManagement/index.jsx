@@ -47,7 +47,10 @@ const columns = [
     dataIndex: 'number',
     key: 'number',
     sorter: (a, b) => a.number - b.number,
+    render: (text) => {
 
+      return <span style={{ color: text <= 10 ? 'red' : null }}>{text}</span>;
+    },
   },
   {
     title: '单位',
@@ -80,20 +83,47 @@ const data = [
   {
     id: 1,
     key: 1,
-    name: '奔驰S级油底壳',
+    name: '宝马X5 2.0T气门室盖',
     category: '发动机配件',
     number: 10,
     unit: '个',
-    notes: '奔驰S300 S320 S400 S500发动机油底壳',
+    notes: '宝马X5气门室盖',
   },
   {
     id: 2,
     key: 2,
-    name: '奔驰A级空气滤清器（2.0T 2.7L 3.5L）',
-    category: '进排气配件',
+    name: '宝马X5 3.0L发动机皮带',
+    category: '发动机配件',
     number: 20,
     unit: '个',
-    notes: '空气滤清器',
+    notes: '宝马X5发动机皮带',
+  },
+  {
+    id: 3,
+    key: 3,
+    name: '宝马5系3.0L正时链条',
+    category: '发动机配件',
+    number: 20,
+    unit: '个',
+    notes: null,
+  },
+  {
+    id: 4,
+    key: 4,
+    name: '宝马X3 2.0T进气管',
+    category: '进气排气配件',
+    number: 40,
+    unit: '个',
+    notes: null,
+  },
+  {
+    id: 5,
+    key: 5,
+    name: '宝马X5 3.0L进气管',
+    category: '进气排气配件',
+    number: 50,
+    unit: '个',
+    notes: '宝马X5发动机皮带',
   },
 
 ];

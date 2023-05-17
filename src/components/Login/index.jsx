@@ -1,27 +1,27 @@
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input, message } from 'antd';
-import loginBg from "./login-bg.jpg";
+import loginBg from './login-bg.jpg';
 import { history, useRequest } from '@umijs/max';
-import { login } from "@/services/employee";
+import { login } from '@/services/employee';
 import { useEffect } from 'react';
 
 function Login() {
 
   useEffect(() => {
-    document.title = '登录'
-  }, [])
+    document.title = '登录';
+  }, []);
 
   const onFinish = async (values) => {
 
-    const { status, data } = await login(values)
+    const { status, data } = await login(values);
     console.log(data);
     if (status === 200) {
-    message.success('登录成功')
-    const user = {
-      department: data.department
-    }
-    localStorage.setItem('user', JSON.stringify(user))
-    history.push('/')
+      message.success('登录成功');
+      const user = {
+        department: data.department,
+      };
+      localStorage.setItem('user', JSON.stringify(user));
+      history.push('/');
     }
 
   };
@@ -32,12 +32,23 @@ function Login() {
       width: '100vw',
       height: '100vh',
       display: 'flex',
+      flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundImage: `url('${loginBg}')`
+      backgroundImage: `url('${loginBg}')`,
     }}>
+
+      <div style={{
+        width: '600px',
+        height: '50px',
+        textAlign: 'center',
+        fontSize: '40px',
+        marginBottom: '60px',
+      }}>4S维修保养全流程综合管理系统
+      </div>
+
       <Form
-        name="normal_login"
+        name='normal_login'
         initialValues={{
           remember: true,
         }}
@@ -52,7 +63,7 @@ function Login() {
         size='large'
       >
         <Form.Item
-          name="username"
+          name='username'
           rules={[
             {
               required: true,
@@ -60,10 +71,10 @@ function Login() {
             },
           ]}
         >
-          <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+          <Input prefix={<UserOutlined className='site-form-item-icon' />} placeholder='Username' />
         </Form.Item>
         <Form.Item
-          name="password"
+          name='password'
           rules={[
             {
               required: true,
@@ -72,9 +83,9 @@ function Login() {
           ]}
         >
           <Input
-            prefix={<LockOutlined className="site-form-item-icon" />}
-            type="password"
-            placeholder="Password"
+            prefix={<LockOutlined className='site-form-item-icon' />}
+            type='password'
+            placeholder='Password'
           />
         </Form.Item>
 
@@ -83,12 +94,14 @@ function Login() {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-          <Button type="primary" htmlType="submit" className="login-form-button">
+          <Button type='primary' htmlType='submit' className='login-form-button'>
             登录
           </Button>
         </Form.Item>
       </Form>
+
+
     </div>
   );
 };
-export default Login
+export default Login;

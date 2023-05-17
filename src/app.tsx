@@ -68,7 +68,6 @@ export const request = {
       const { data } = response;
       const { status, message: responseMessage } = data;
       if (status !== 200) message.error(responseMessage);
-      // do something
       return response;
     },
 

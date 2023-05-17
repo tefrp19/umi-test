@@ -39,7 +39,7 @@ const data = [
     EmployeeName: '张三',
     role: '客户部',
     action_time: '2023-04-21T13:27:20.000Z',
-    notes: '联系客户保修即将到期',
+    notes: '客户主动进厂维修',
   },
   {
     id: 2,
@@ -47,8 +47,17 @@ const data = [
     EmployeeId: 2,
     EmployeeName: '李四',
     role: '售后部',
-    action_time: '2023-04-22T13:27:20.000Z',
-    notes: '汽车维修，配件出库，消耗奔驰A级空气滤清器（2.0T 2.7L 3.5L）1个',
+    action_time: '2023-04-22T07:27:20.000Z',
+    notes: '汽车维修，消耗宝马X5 2.0T气门室盖1个',
+  },
+  {
+    id: 3,
+    key: 3,
+    EmployeeId: 3,
+    EmployeeName: '王五',
+    role: '配件部',
+    action_time: '2023-04-22T09:27:20.000Z',
+    notes: '配件出库，出库宝马X5 2.0T气门室盖1个',
   },
 ];
 export default function() {

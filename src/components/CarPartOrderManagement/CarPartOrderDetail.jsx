@@ -12,15 +12,15 @@ export default function() {
       <PageContainer>
         <Card style={{ padding: '0 20px', marginBottom: '50px' }}>
           <Steps
-            current={1}
+            current={2}
             items={[
               {
                 title: '提交订单',
-                description: '2018-09-15 12:24:27',
+                description: '2023-04-15 12:24:27',
               },
               {
-                title: '申请中',
-                description: '2018-09-15 12:24:27',
+                title: '审核通过',
+                description: null,
               },
               {
                 title: '已完成',
@@ -43,7 +43,7 @@ export default function() {
               </div>
               <div style={{ flex: '1' }} />
               <Space>
-                <Button type='primary'>
+                <Button type='primary' disabled>
                   审核订单
                 </Button>
                 <Button type='primary' danger>

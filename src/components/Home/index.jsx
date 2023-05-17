@@ -6,12 +6,10 @@ import { useState } from 'react';
 import Line from './Line';
 import RightChart from './RightChart';
 
-
-export default function() {
+export default function () {
 
   return (
     <>
-
       <ProCard
         title='数据概览'
         extra={new Date().toLocaleDateString()}
@@ -80,7 +78,7 @@ export default function() {
             //   alt='大盘'
             //   width='100%'
             // />
-            <RightChart/>
+            <RightChart />
           }
         />
       </ProCard>

@@ -2,7 +2,9 @@ import { getEmployees } from '@/services/employee';
 import { Space, Table, Tag, Switch, Input, Button, Popconfirm, Card } from 'antd';
 import { useEffect, useState } from 'react';
 import { PageContainer } from '@ant-design/pro-components';
+import { temp } from '../BusinessManagement'
 
+console.log(temp);
 const data = [
   {
     id: 1,

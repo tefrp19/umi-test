@@ -47,7 +47,7 @@ const data = [
   {
     carPartId: 1,
     key: 1,
-    carPart: '奔驰A级空气滤清器（2.0T 2.7L 3.5L）',
+    carPart: '宝马X3 2.0T进气管',
     firm: '绵阳市斯普润市政工程建设有限公司',
     number: 10,
     price: 200,
@@ -57,7 +57,7 @@ const data = [
   {
     carPartId: 2,
     key: 2,
-    carPart: '奔驰S300发动机油底壳',
+    carPart: '宝马X5 3.0L进气管',
     firm: '绵阳市燊达机械加工有限公司',
     number: 20,
     price: 100,
@@ -67,7 +67,7 @@ const data = [
   {
     carPartId: 3,
     key: 3,
-    carPart: '奔驰A级空气滤清器（2.0T 2.7L 3.5L）',
+    carPart: '宝马5系3.0L正时链条',
     firm: '绵阳市斯普润市政工程建设有限公司',
     number: 10,
     price: 200,

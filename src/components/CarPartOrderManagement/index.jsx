@@ -19,25 +19,25 @@ const columns = [
     key: 'status',
     render: (text) => {
       const map = new Map([
-        ['申请中', 'processing'],
-        ['申请成功', 'success'],
-        ['申请失败', 'error'],
+        ['审核中', 'processing'],
+        ['审核成功', 'success'],
+        ['审核失败', 'error'],
         ['已完成', 'default'],
       ]);
       return <Tag color={map.get(text)}>{text}</Tag>;
     },
     filters: [
       {
-        text: '申请中',
-        value: '申请中',
+        text: '审核中',
+        value: '审核中',
       },
       {
-        text: '申请成功',
-        value: '申请成功',
+        text: '审核成功',
+        value: '审核成功',
       },
       {
-        text: '申请失败',
-        value: '申请失败',
+        text: '审核失败',
+        value: '审核失败',
       },
       {
         text: '已完成',
@@ -87,7 +87,7 @@ const data = [
   {
     id: 1,
     key: 1,
-    status: '申请中',
+    status: '审核中',
     create_time: '2023-04-22T13:27:20.000Z',
     finish_time: null,
     notes: 'xxxxxxxxxxxxx',
@@ -103,7 +103,7 @@ const data = [
   {
     id: 3,
     key: 3,
-    status: '申请成功',
+    status: '审核成功',
     create_time: '2023-04-21T15:27:20.000Z',
     finish_time: null,
     notes: 'xxxxxxxxxxxxx',

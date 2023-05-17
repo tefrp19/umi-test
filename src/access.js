@@ -15,6 +15,7 @@ export default function (initialState) {
   // TODO 登录权限
   const department=user?.department
   return {
+    accessTest:false,
     canReadFoo: true,
     canUpdateFoo: role === 'admin',
     canDeleteFoo: (foo) => {
