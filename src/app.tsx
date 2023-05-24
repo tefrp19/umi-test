@@ -8,7 +8,7 @@ export async function getInitialState() {
   // const initialData = await fetchInitialData();
   console.log('getInitialState');
   const user = localStorage.getItem('user');
-  // history.push('/login')
+  if (!user) history.push('/login')
 
   return { user: user ? JSON.parse(user) : null };
 }

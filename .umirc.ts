@@ -20,7 +20,6 @@ export default defineConfig({
     {
       path: '/',
       redirect: '/home',
-      // access: 'canReadEmployeeManagement',
     },
     {
       name: '首页',
@@ -42,20 +41,20 @@ export default defineConfig({
           path: 'accessManagement',
           icon: 'SecurityScanTwoTone',
           component: './AccessManagement',
-          // access: 'accessTest',
+          access: 'accessManagement',
         },
         {
           name: '部门管理',
           path: 'departmentManagement',
           icon: 'HomeOutlined',
           component: './DepartmentManagement',
-          // access: 'canReadEmployeeManagement',
+          access: 'departmentManagement',
         },
         {
           name: '员工管理',
           path: 'employeeManagement',
           component: './EmployeeManagement',
-          // access: 'canReadEmployeeManagement',
+          access: 'employeeManagement',
         },
       ],
     },

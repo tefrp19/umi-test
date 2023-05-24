@@ -1,9 +1,9 @@
 import { getEmployees } from '@/services/employee';
 import { Space, Table, Tag, Switch, Input, Button, Popconfirm, Card } from 'antd';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import AddEmployee from './AddEmployee';
 import { PageContainer } from '@ant-design/pro-components';
-
+import initialEmployess from '@/data/employees'
 const onChange = (checked) => {
   console.log(`switch to ${checked}`);
 };
@@ -110,72 +110,44 @@ const columns = [
   },
 
 ];
-const data = [
-  {
-    id: 1,
-    key: 1,
-    username: 'test1',
-    nickname: 'JohnBrown',
-    gender: 0,
-    phone_number: '15881999863',
-    create_time: '2023-04-23T15:27:20.000Z',
-    update_time: '2023-04-23T15:27:20.000Z',
-    department: '人事部',
-    status: 1,
-
-  },
-  {
-    id: 2,
-    key: 2,
-    username: 'test2',
-    nickname: 'JimGreen',
-    gender: 0,
-    phone_number: '19114031807',
-    create_time: '2023-04-23T15:27:20.000Z',
-    update_time: '2023-04-23T15:27:20.000Z',
-    department: '客户部',
-    status: 0,
-  },
-
-];
-for (let i = 3; i < 100; i++) {
-  data.push({
-    id: i,
-    key: i,
-    username: 'test2',
-    nickname: 'JimGreen',
-    gender: 1,
-    phone_number: '19114031807',
-    create_time: '2023-04-23T15:27:20.000Z',
-    update_time: '2023-04-23T15:27:20.000Z',
-    department: '客户部',
-    status: 1,
-  });
-}
 
 function EmployeeManagement() {
-  const [dataSource, useDataSource] = useState([]);
+  const [dataSource, setDataSource] = useState([]);
+  const [searchUsername, setSearchUsername] = useState('')
+  const [searchNickname, setSearchNickname] = useState('')
+
 
   useEffect(() => {
-    (async () => {
-      // const data = await getEmployees()
-      // console.log(data);
-    })();
+
+    setDataSource(initialEmployess)
   }, []);
+
+
+  function search() {
+    const filter = employee => employee.username.includes(searchUsername) && employee.nickname.includes(searchNickname)
+    setDataSource(initialEmployess.filter(filter))
+  }
+
+  function reset() {
+    setSearchUsername('')
+    setSearchNickname('')
+    setDataSource(initialEmployess)
+  }
 
   return (
     <>
       <PageContainer>
         <Card style={{ marginBottom: '30px' }}>
           <Space>
-            <Input placeholder='搜索账号' />
-            <Input placeholder='搜索姓名' />
-            <Button>查询</Button>
+            <Input placeholder='搜索账号' value={searchUsername} onChange={(e) => setSearchUsername(e.target.value)} />
+            <Input placeholder='搜索姓名' value={searchNickname} onChange={(e) => setSearchNickname(e.target.value)} />
+            <Button onClick={search}>查询</Button>
+            <Button onClick={reset}>重置</Button>
             <AddEmployee />
           </Space>
         </Card>
         <Card>
-          <Table columns={columns} dataSource={data} />
+          <Table columns={columns} dataSource={dataSource} />
         </Card>
       </PageContainer>
 

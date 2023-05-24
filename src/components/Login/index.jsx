@@ -1,11 +1,12 @@
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input, message } from 'antd';
 import loginBg from './login-bg.jpg';
-import { history, useRequest } from '@umijs/max';
+import { history, useRequest ,useModel} from '@umijs/max';
 import { login } from '@/services/employee';
 import { useEffect } from 'react';
-import users from "./users";
+import employees from "@/data/employees";
 function Login() {
+  const { setInitialState } =useModel('@@initialState');
 
   useEffect(() => {
     document.title = '登录';
@@ -16,7 +17,7 @@ function Login() {
     const { username, password } = values
    
     // 1.判断用户名是否存在
-    const user = users.find(user => user.username === username)
+    const user = employees.find(employee => employee.username === username)
     if (!user) {
       message.error('用户名不存在！')
       return
@@ -28,6 +29,7 @@ function Login() {
     }
     // 3.登录成功 
     delete user.password
+    setInitialState({user})
     localStorage.setItem('user', JSON.stringify(user));
     history.push('/');
 
