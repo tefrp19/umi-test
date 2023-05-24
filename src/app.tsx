@@ -53,6 +53,8 @@ export const layout = ({ initialState }) => {
     },
 
     logout: () => {
+      console.log(123);
+      
       localStorage.removeItem('user');
       history.push('/login');
     },
