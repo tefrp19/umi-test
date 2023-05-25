@@ -27,7 +27,6 @@ const columns = [
     title: '性别',
     dataIndex: 'gender',
     key: 'gender',
-    render: (gender) => gender ? '男' : '女',
   },
   {
     title: '手机号',
@@ -38,20 +37,12 @@ const columns = [
     title: '创建时间',
     dataIndex: 'create_time',
     key: 'create_time',
-    render: (text) => {
-      if (!text) return null;
-      return (new Date(text)).toLocaleString();
-    },
     sorter: (a, b) => new Date(a.create_time) - new Date(b.create_time),
   },
   {
     title: '更新时间',
     dataIndex: 'update_time',
     key: 'update_time',
-    render: (text) => {
-      if (!text) return null;
-      return (new Date(text)).toLocaleString();
-    },
     sorter: (a, b) => new Date(a.update_time) - new Date(b.update_time),
   },
   {
@@ -85,6 +76,7 @@ const columns = [
       // console.log(record);
       // record.name.indexOf(value) === 0
     },
+    filterMultiple: false,
   },
   {
     title: '是否启用账号',
@@ -112,6 +104,7 @@ const columns = [
 ];
 
 function EmployeeManagement() {
+  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const [dataSource, setDataSource] = useState([]);
   const [searchUsername, setSearchUsername] = useState('')
   const [searchNickname, setSearchNickname] = useState('')
@@ -134,6 +127,15 @@ function EmployeeManagement() {
     setDataSource(initialEmployess)
   }
 
+  const onSelectChange = (newSelectedRowKeys) => {
+    console.log('selectedRowKeys changed: ', newSelectedRowKeys);
+    setSelectedRowKeys(newSelectedRowKeys);
+  };
+  const rowSelection = {
+    selectedRowKeys,
+    onChange: onSelectChange,
+  };
+
   return (
     <>
       <PageContainer>
@@ -143,11 +145,11 @@ function EmployeeManagement() {
             <Input placeholder='搜索姓名' value={searchNickname} onChange={(e) => setSearchNickname(e.target.value)} />
             <Button onClick={search}>查询</Button>
             <Button onClick={reset}>重置</Button>
-            <AddEmployee />
+            <AddEmployee  setDataSource={setDataSource}/>
           </Space>
         </Card>
         <Card>
-          <Table columns={columns} dataSource={dataSource} />
+          <Table rowSelection={rowSelection} columns={columns} dataSource={dataSource} />
         </Card>
       </PageContainer>
 

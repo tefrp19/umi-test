@@ -2,11 +2,24 @@ import { PlusOutlined } from '@ant-design/icons';
 import {
     ModalForm,
     ProForm,
-    ProFormDateRangePicker,
     ProFormSelect,
     ProFormText,
 } from '@ant-design/pro-components';
 import { Button, Form, message } from 'antd';
+
+interface employee {
+    id: number,
+    key: number,
+    username: string,
+    password: string,
+    nickname: string,
+    gender: string,
+    phone_number: string,
+    create_time: string,
+    update_time: string,
+    department: 'admin',
+    status: boolean,
+}
 
 const waitTime = (time: number = 100) => {
     return new Promise((resolve) => {
@@ -16,13 +29,30 @@ const waitTime = (time: number = 100) => {
     });
 };
 
-export default () => {
-    const [form] = Form.useForm<{ name: string; company: string }>();
+
+export default ({ setDataSource }) => {
+    const [form] = Form.useForm();
+    async function handleFinish(values: employee) {
+        await waitTime(100);
+        console.log(values);
+        values.create_time = (new Date).toLocaleDateString()
+        values.status = true
+        values.id = +new Date()
+        values.key = values.id
+        setDataSource(data => {
+            const newData = [
+                ...data,
+                values
+            ]
+            localStorage.setItem('employees', JSON.stringify(newData))
+            return newData
+        })
+        message.success('添加成功');
+        return true;
+    }
+
     return (
-        <ModalForm<{
-            name: string;
-            company: string;
-        }>
+        <ModalForm<employee>
             title="添加员工"
             trigger={
                 <Button type="primary">
@@ -34,17 +64,8 @@ export default () => {
             autoFocusFirstInput
             modalProps={{
                 destroyOnClose: true,
-                onCancel: () => console.log('run'),
             }}
-            submitTimeout={2000}
-            onFinish={async (values) => {
-                await waitTime(100);
-                console.log(values.name);
-                console.log(values);
-
-                message.success('提交成功');
-                return true;
-            }}
+            onFinish={handleFinish}
         >
             <ProForm.Group>
                 <ProFormText
@@ -70,17 +91,17 @@ export default () => {
                 />
                 <ProFormSelect
                     valueEnum={{
-                        open: '未解决',
-                        closed: '已解决',
+                        '男': '男',
+                        '女': '女',
                     }}
                     width="xs"
-                    name="useMode"
+                    name="gender"
                     label="性别"
                     rules={[{ required: true }]}
                 />
                 <ProFormText
                     width="md"
-                    name="company"
+                    name="phone_number"
                     label="员工手机号"
                     placeholder="请输入手机号"
                 />
@@ -93,48 +114,14 @@ export default () => {
                         财务部: '财务部',
                     }}
                     width="xs"
-                    name="xx"
+                    name="department"
                     label="员工部门"
                     rules={[{ required: true }]}
                 />
             </ProForm.Group>
-            <ProForm.Group>
-                <ProFormText
-                    width="md"
-                    name="contract"
-                    label="合同名称"
-                    placeholder="请输入名称"
-                />
-                <ProFormDateRangePicker name="contractTime" label="合同生效时间" />
-            </ProForm.Group>
-            <ProForm.Group>
 
-                <ProFormSelect
-                    width="xs"
-                    options={[
-                        {
-                            value: 'time',
-                            label: '履行完终止',
-                        },
-                    ]}
-                    name="unusedMode"
-                    label="合同约定失效效方式"
-                />
-            </ProForm.Group>
-            <ProFormText width="sm" name="id" label="主合同编号" />
-            <ProFormText
-                name="project"
-                disabled
-                label="项目名称"
-                initialValue="xxxx项目"
-            />
-            <ProFormText
-                width="xs"
-                name="mangerName"
-                disabled
-                label="商务经理"
-                initialValue="启途"
-            />
+
+
         </ModalForm>
     );
 };
