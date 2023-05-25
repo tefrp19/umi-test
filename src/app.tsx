@@ -3,11 +3,13 @@ import { history } from '@umijs/max';
 import { message } from 'antd';
 import logo from './assets/logo.svg';
 import employees from '@/data/employees'
+import clients from '@/data/clients'
 // 全局初始化数据配置，用于 Layout 用户信息和权限初始化
 // 更多信息见文档：https://umijs.org/docs/api/runtime-config#getinitialstate
 export async function getInitialState() {
   // 将data文件夹中的所有数据存到localStorage
   localStorage.setItem('employees', JSON.stringify(employees))
+  localStorage.setItem('clients', JSON.stringify(clients))
 
   console.log('getInitialState');
   const user = localStorage.getItem('user');

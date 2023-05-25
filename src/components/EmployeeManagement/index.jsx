@@ -2,7 +2,6 @@ import { Space, Table, Tag, Switch, Input, Button, Popconfirm, Card } from 'antd
 import { useEffect, useRef, useState } from 'react';
 import AddEmployee from './AddEmployee';
 import { PageContainer } from '@ant-design/pro-components';
-import initialEmployess from '@/data/employees'
 import UpdateEmployee from './UpdateEmployee';
 
 function EmployeeManagement() {
@@ -15,7 +14,7 @@ function EmployeeManagement() {
   useEffect(() => {
     const localData = localStorage.getItem('employees')
 
-    setDataSource(localData ? JSON.parse(localData) : initialEmployess)
+    setDataSource(JSON.parse(localData))
 
   }, []);
 
@@ -39,6 +38,18 @@ function EmployeeManagement() {
       title: '性别',
       dataIndex: 'gender',
       key: 'gender',
+      filters: [
+        {
+          text: '男',
+          value: '男',
+        },
+        {
+          text: '女',
+          value: '女',
+        },
+      ],
+      filterMultiple: false,
+      onFilter: (value, record) => record.gender === value,
     },
     {
       title: '手机号',
@@ -160,9 +171,9 @@ function EmployeeManagement() {
             <AddEmployee setDataSource={setDataSource} />
             <Popconfirm title='确认删除？' disabled={!selectedRowKeys.length} onConfirm={() => {
               console.log(selectedRowKeys);
-              let newData=JSON.parse(localStorage.getItem('employees'))
+              let newData = JSON.parse(localStorage.getItem('employees'))
               for (const selectedRowKey of selectedRowKeys) {
-                newData= newData.filter(employee => employee.id !== selectedRowKey)
+                newData = newData.filter(employee => employee.id !== selectedRowKey)
               }
               localStorage.setItem('employees', JSON.stringify(newData))
               setDataSource(newData)
