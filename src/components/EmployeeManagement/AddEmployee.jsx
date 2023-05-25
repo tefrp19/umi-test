@@ -1,5 +1,6 @@
 import { PlusOutlined } from '@ant-design/icons';
 import {
+    DrawerForm,
     ModalForm,
     ProForm,
     ProFormSelect,
@@ -7,21 +8,8 @@ import {
 } from '@ant-design/pro-components';
 import { Button, Form, message } from 'antd';
 
-interface employee {
-    id: number,
-    key: number,
-    username: string,
-    password: string,
-    nickname: string,
-    gender: string,
-    phone_number: string,
-    create_time: string,
-    update_time: string,
-    department: 'admin',
-    status: boolean,
-}
 
-const waitTime = (time: number = 100) => {
+const waitTime = (time = 100) => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(true);
@@ -32,10 +20,11 @@ const waitTime = (time: number = 100) => {
 
 export default ({ setDataSource }) => {
     const [form] = Form.useForm();
-    async function handleFinish(values: employee) {
-        await waitTime(100);
-        console.log(values);
-        values.create_time = (new Date).toLocaleDateString()
+    
+    async function handleFinish(values) {
+        await waitTime(1000);
+        // console.log(values);
+        values.create_time = (new Date).toLocaleString()
         values.status = true
         values.id = +new Date()
         values.key = values.id
@@ -52,7 +41,7 @@ export default ({ setDataSource }) => {
     }
 
     return (
-        <ModalForm<employee>
+        <DrawerForm
             title="添加员工"
             trigger={
                 <Button type="primary">
@@ -62,7 +51,7 @@ export default ({ setDataSource }) => {
             }
             form={form}
             autoFocusFirstInput
-            modalProps={{
+            drawerProps={{
                 destroyOnClose: true,
             }}
             onFinish={handleFinish}
@@ -75,7 +64,7 @@ export default ({ setDataSource }) => {
                     placeholder="请输入账号"
                     rules={[{ required: true, message: '输入员工账号' }]}
                 />
-                <ProFormText
+                <ProFormText.Password
                     width="md"
                     name="password"
                     label="员工密码"
@@ -122,6 +111,6 @@ export default ({ setDataSource }) => {
 
 
 
-        </ModalForm>
+        </DrawerForm>
     );
 };
