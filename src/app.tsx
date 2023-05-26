@@ -70,7 +70,7 @@ export const layout = ({ initialState }) => {
 export const request = {
   timeout: 1000,
   responseInterceptors: [
-    (response) => {
+    (response:any) => {
       // 不再需要异步处理读取返回体内容，可直接在data中读出，部分字段可在 config 中找到
       const { data } = response;
       const { status, message: responseMessage } = data;

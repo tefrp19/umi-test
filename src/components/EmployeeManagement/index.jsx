@@ -1,4 +1,4 @@
-import { Space, Table, Tag, Switch, Input, Button, Popconfirm, Card } from 'antd';
+import { Space, Table, Tag, Switch, Input, Button, Popconfirm, Card, message } from 'antd';
 import { useEffect, useRef, useState } from 'react';
 import AddEmployee from './AddEmployee';
 import { PageContainer } from '@ant-design/pro-components';
@@ -129,6 +129,7 @@ function EmployeeManagement() {
             const newData = JSON.parse(localStorage.getItem('employees')).filter(employee => employee.id !== record.id)
             localStorage.setItem('employees', JSON.stringify(newData))
             setDataSource(newData)
+            message.success('删除成功')
           }}>
             <Button type='text' danger>
               删除
@@ -142,13 +143,13 @@ function EmployeeManagement() {
 
   function search() {
     const filter = employee => employee.username.includes(searchUsername) && employee.nickname.includes(searchNickname)
-    setDataSource(initialEmployess.filter(filter))
+    setDataSource(JSON.parse(localStorage.getItem('employees')).filter(filter))
   }
 
   function reset() {
     setSearchUsername('')
     setSearchNickname('')
-    setDataSource(initialEmployess)
+    setDataSource(JSON.parse(localStorage.getItem('employees')))
   }
 
   const onSelectChange = (newSelectedRowKeys) => {
@@ -177,6 +178,8 @@ function EmployeeManagement() {
               }
               localStorage.setItem('employees', JSON.stringify(newData))
               setDataSource(newData)
+              setSelectedRowKeys([])
+              message.success('删除成功')
             }}>
               <Button type='primary' danger disabled={!selectedRowKeys.length}>
                 多选删除
