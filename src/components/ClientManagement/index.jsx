@@ -100,12 +100,7 @@ function EmployeeManagement() {
   ];
 
   function search() {
-    console.log(typeof searchId);
-    console.log(searchName);
-    console.log(searchPhoneNumber);
-    console.log(searchAddress);
     const filter = client =>  String(client.id).includes(searchId) && client.name.includes(searchName) && client.phone_number.includes(searchPhoneNumber) && client.address.includes(searchAddress)
-
     setDataSource(JSON.parse(localStorage.getItem('clients')).filter(filter))
   }
 
