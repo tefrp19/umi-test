@@ -1,36 +1,41 @@
 import { Card, Col, Row } from 'antd';
-import { PageContainer } from '@ant-design/pro-components';
+import { PageContainer, ProCard, StatisticCard, Statistic } from '@ant-design/pro-components';
 import './index.css';
 import Line from './Line';
 
-export default function() {
+export default function () {
 
   return (
     <>
       <PageContainer>
-        {/*<Row gutter={[48,48]} >*/}
-        {/*  <Col span={12} >*/}
-        {/*    <Card  title='Card title' bordered={false} style={{height:'400px'}}>*/}
-        {/*      {<Line/>}*/}
-        {/*    </Card>*/}
-        {/*  </Col>*/}
-        {/*  <Col span={12}>*/}
-        {/*    <Card title='Card title' bordered={false}>*/}
-        {/*      Card content*/}
-        {/*    </Card>*/}
-        {/*  </Col>*/}
-        {/*  <Col span={12}>*/}
-        {/*    <Card title='Card title' bordered={false}>*/}
-        {/*      Card content*/}
-        {/*    </Card>*/}
-        {/*  </Col>*/}
-        {/*  <Col span={12}>*/}
-        {/*    <Card title='Card title' bordered={false}>*/}
-        {/*      Card content*/}
-        {/*    </Card>*/}
-        {/*  </Col>*/}
-        {/*</Row>*/}
-        <Line />
+        <ProCard
+          title="数据概览"
+          extra="2019年9月28日 星期五"
+          split='vertical'
+          headerBordered
+          bordered
+        >
+          <ProCard split="horizontal">
+            <StatisticCard
+              title="流量走势"
+              chart={<Line />}
+            />
+            <StatisticCard
+              title="流量走势"
+              chart={<Line />}
+            />
+          </ProCard>
+          <ProCard split="horizontal">
+            <StatisticCard
+              title="流量走势"
+              chart={<Line />}
+            />
+            <StatisticCard
+              title="流量走势"
+              chart={<Line />}
+            />
+          </ProCard>
+        </ProCard>
       </PageContainer>
     </>
   );
