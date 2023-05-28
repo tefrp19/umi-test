@@ -11,13 +11,14 @@
 
 export default function (initialState) {
   const { userId, role,user } = initialState;
-  console.log('initialState',initialState);
+  // console.log('initialState',initialState);
   // TODO 登录权限
   const department=user?.department
+  // console.log(department);
   return {
-    accessTest:false,
-    canReadFoo: true,
-    canUpdateFoo: role === 'admin',
+    accessManagement:department==='admin',
+    departmentManagement:department==='admin',
+    employeeManagement:['admin','人事部'].includes(department),
     canDeleteFoo: (foo) => {
       return foo.ownerId === userId;
     },

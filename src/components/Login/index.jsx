@@ -1,28 +1,37 @@
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input, message } from 'antd';
 import loginBg from './login-bg.jpg';
-import { history, useRequest } from '@umijs/max';
+import { history, useRequest ,useModel} from '@umijs/max';
 import { login } from '@/services/employee';
 import { useEffect } from 'react';
-
+import employees from "@/data/employees";
 function Login() {
+  const { setInitialState } =useModel('@@initialState');
 
   useEffect(() => {
     document.title = '登录';
   }, []);
 
-  const onFinish = async (values) => {
-
-    const { status, data } = await login(values);
-    console.log(data);
-    if (status === 200) {
-      message.success('登录成功');
-      const user = {
-        department: data.department,
-      };
-      localStorage.setItem('user', JSON.stringify(user));
-      history.push('/');
+  const onFinish = (values) => {
+    console.log(values);
+    const { username, password } = values
+   
+    // 1.判断用户名是否存在
+    const user = employees.find(employee => employee.username === username)
+    if (!user) {
+      message.error('用户名不存在！')
+      return
     }
+    // 2.判断密码是否正确
+    if (user.password !== password) {
+      message.error('密码错误请重试！')
+      return
+    }
+    // 3.登录成功 
+    delete user.password
+    setInitialState({user})
+    localStorage.setItem('user', JSON.stringify(user));
+    history.push('/');
 
   };
 

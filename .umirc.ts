@@ -20,7 +20,6 @@ export default defineConfig({
     {
       path: '/',
       redirect: '/home',
-      // access: 'canReadEmployeeManagement',
     },
     {
       name: '首页',
@@ -42,20 +41,20 @@ export default defineConfig({
           path: 'accessManagement',
           icon: 'SecurityScanTwoTone',
           component: './AccessManagement',
-          // access: 'accessTest',
+          access: 'accessManagement',
         },
         {
           name: '部门管理',
           path: 'departmentManagement',
           icon: 'HomeOutlined',
           component: './DepartmentManagement',
-          // access: 'canReadEmployeeManagement',
+          access: 'departmentManagement',
         },
         {
           name: '员工管理',
           path: 'employeeManagement',
           component: './EmployeeManagement',
-          // access: 'canReadEmployeeManagement',
+          access: 'employeeManagement',
         },
       ],
     },
@@ -146,12 +145,12 @@ export default defineConfig({
           // 1.客户数据分析：客户流失分析、客户回访分析（评价星级、词云图）、客户保养数据分析（x轴时间，y轴次数，次数多或少的月份考虑做活动）
           name: '客户数据分析',
           path: 'client',
-          // component: './BusinessManagement',
+          component: './ClientAnalysis',
         },
         {
           name: '财务收入支出分析',
           path: 'finance',
-          // component: './BusinessManagement',
+          component: './FinanceAnalysis',
           // access:'accessTest',
         },
       ],

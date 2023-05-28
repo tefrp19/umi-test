@@ -189,11 +189,12 @@ const data = [
 ];
 
 function EmployeeManagement() {
-  const [dataSource, useDataSource] = useState([]);
+  const [dataSource, setDataSource] = useState([]);
   // const [switchChecked,useSwitchChecked]=us
   const onChange = (checked) => {
     // checked=!checked
     console.log(`switch to ${checked}`);
+    
   };
   const columns = [
     {
@@ -247,9 +248,9 @@ function EmployeeManagement() {
 
   useEffect(() => {
     (async () => {
-      // const data = await getEmployees()
-      // console.log(data);
+      setDataSource(data)
     })();
+    
   }, []);
 
   return (
@@ -257,7 +258,7 @@ function EmployeeManagement() {
       <PageContainer>
 
         <Card>
-          <Table columns={columns} dataSource={data} />
+          <Table columns={columns} dataSource={dataSource} />
         </Card>
       </PageContainer>
 

@@ -1,181 +1,194 @@
-import { getEmployees } from '@/services/employee';
-import { Space, Table, Tag, Switch, Input, Button, Popconfirm, Card } from 'antd';
-import { useEffect, useState } from 'react';
+import { Space, Table, Tag, Switch, Input, Button, Popconfirm, Card, message } from 'antd';
+import { useEffect, useRef, useState } from 'react';
 import AddEmployee from './AddEmployee';
 import { PageContainer } from '@ant-design/pro-components';
-
-const onChange = (checked) => {
-  console.log(`switch to ${checked}`);
-};
-const columns = [
-  {
-    title: '员工编号',
-    dataIndex: 'id',
-    key: 'id',
-  },
-  {
-    title: '账号',
-    dataIndex: 'username',
-    key: 'username',
-  },
-  {
-    title: '姓名',
-    dataIndex: 'nickname',
-    key: 'nickname',
-  },
-  {
-    title: '性别',
-    dataIndex: 'gender',
-    key: 'gender',
-    render: (gender) => gender ? '男' : '女',
-  },
-  {
-    title: '手机号',
-    dataIndex: 'phone_number',
-    key: 'phone_number',
-  },
-  {
-    title: '创建时间',
-    dataIndex: 'create_time',
-    key: 'create_time',
-    render: (text) => {
-      if (!text) return null;
-      return (new Date(text)).toLocaleString();
-    },
-    sorter: (a, b) => new Date(a.create_time) - new Date(b.create_time),
-  },
-  {
-    title: '更新时间',
-    dataIndex: 'update_time',
-    key: 'update_time',
-    render: (text) => {
-      if (!text) return null;
-      return (new Date(text)).toLocaleString();
-    },
-    sorter: (a, b) => new Date(a.update_time) - new Date(b.update_time),
-  },
-  {
-    title: '部门',
-    dataIndex: 'department',
-    key: 'department',
-    filters: [
-      {
-        text: '人事部',
-        value: '人事部',
-      },
-      {
-        text: '客户部',
-        value: '客户部',
-      },
-      {
-        text: '配件部',
-        value: '配件部',
-      },
-      {
-        text: '售后部',
-        value: '售后部',
-      },
-      {
-        text: '财务部',
-        value: '财务部',
-      },
-    ],
-    onFilter: (value, record) => {
-      // console.log(value);
-      // console.log(record);
-      // record.name.indexOf(value) === 0
-    },
-  },
-  {
-    title: '是否启用账号',
-    dataIndex: 'status',
-    key: 'status',
-    render: (status) => <Switch checked={!!status} onChange={onChange} />,
-  },
-  {
-    title: '操作',
-    key: 'action',
-    render: () => (
-      <Space size='middle'>
-        <a>重置密码</a>
-        <a>修改信息</a>
-        <Popconfirm title='确认删除？' onConfirm={() => {
-        }}>
-          <Button type='text' danger>
-            删除
-          </Button>
-        </Popconfirm>
-      </Space>
-    ),
-  },
-
-];
-const data = [
-  {
-    id: 1,
-    key: 1,
-    username: 'test1',
-    nickname: 'JohnBrown',
-    gender: 0,
-    phone_number: '15881999863',
-    create_time: '2023-04-23T15:27:20.000Z',
-    update_time: '2023-04-23T15:27:20.000Z',
-    department: '人事部',
-    status: 1,
-
-  },
-  {
-    id: 2,
-    key: 2,
-    username: 'test2',
-    nickname: 'JimGreen',
-    gender: 0,
-    phone_number: '19114031807',
-    create_time: '2023-04-23T15:27:20.000Z',
-    update_time: '2023-04-23T15:27:20.000Z',
-    department: '客户部',
-    status: 0,
-  },
-
-];
-for (let i = 3; i < 100; i++) {
-  data.push({
-    id: i,
-    key: i,
-    username: 'test2',
-    nickname: 'JimGreen',
-    gender: 1,
-    phone_number: '19114031807',
-    create_time: '2023-04-23T15:27:20.000Z',
-    update_time: '2023-04-23T15:27:20.000Z',
-    department: '客户部',
-    status: 1,
-  });
-}
+import UpdateEmployee from './UpdateEmployee';
 
 function EmployeeManagement() {
-  const [dataSource, useDataSource] = useState([]);
+  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+  const [dataSource, setDataSource] = useState([]);
+  const [searchUsername, setSearchUsername] = useState('')
+  const [searchNickname, setSearchNickname] = useState('')
+
 
   useEffect(() => {
-    (async () => {
-      // const data = await getEmployees()
-      // console.log(data);
-    })();
+    const localData = localStorage.getItem('employees')
+
+    setDataSource(JSON.parse(localData))
+
   }, []);
+
+  const columns = [
+    {
+      title: '员工编号',
+      dataIndex: 'id',
+      key: 'id',
+    },
+    {
+      title: '账号',
+      dataIndex: 'username',
+      key: 'username',
+    },
+    {
+      title: '姓名',
+      dataIndex: 'nickname',
+      key: 'nickname',
+    },
+    {
+      title: '性别',
+      dataIndex: 'gender',
+      key: 'gender',
+      filters: [
+        {
+          text: '男',
+          value: '男',
+        },
+        {
+          text: '女',
+          value: '女',
+        },
+      ],
+      filterMultiple: false,
+      onFilter: (value, record) => record.gender === value,
+    },
+    {
+      title: '手机号',
+      dataIndex: 'phone_number',
+      key: 'phone_number',
+    },
+    {
+      title: '创建时间',
+      dataIndex: 'create_time',
+      key: 'create_time',
+      sorter: (a, b) => new Date(a.create_time) - new Date(b.create_time),
+    },
+    {
+      title: '更新时间',
+      dataIndex: 'update_time',
+      key: 'update_time',
+      sorter: (a, b) => new Date(a.update_time) - new Date(b.update_time),
+    },
+    {
+      title: '部门',
+      dataIndex: 'department',
+      key: 'department',
+      filters: [
+        {
+          text: '人事部',
+          value: '人事部',
+        },
+        {
+          text: '客户部',
+          value: '客户部',
+        },
+        {
+          text: '配件部',
+          value: '配件部',
+        },
+        {
+          text: '售后部',
+          value: '售后部',
+        },
+        {
+          text: '财务部',
+          value: '财务部',
+        },
+      ],
+      onFilter: (value, record) => record.department === value,
+      filterMultiple: false,
+    },
+    {
+      title: '是否启用账号',
+      dataIndex: 'status',
+      key: 'status',
+      render: (status, record) => <Switch defaultChecked={status} onChange={
+        (checked) => {
+          const newData = dataSource.map(data => {
+            if (data.id === record.id) {
+              return {
+                ...data,
+                status: checked,
+                update_time: new Date().toLocaleString()
+              }
+            }
+            else return data
+          })
+          localStorage.setItem('employees', JSON.stringify(newData))
+          setDataSource(newData)
+        }
+      } />,
+    },
+    {
+      title: '操作',
+      key: 'action',
+      render: (_, record) => (
+        <Space size='middle'>
+          <a>重置密码</a>
+          <UpdateEmployee employee={record} setDataSource={setDataSource} />
+          <Popconfirm title='确认删除？' onConfirm={() => {
+            const newData = JSON.parse(localStorage.getItem('employees')).filter(employee => employee.id !== record.id)
+            localStorage.setItem('employees', JSON.stringify(newData))
+            setDataSource(newData)
+            message.success('删除成功')
+          }}>
+            <Button type='text' danger>
+              删除
+            </Button>
+          </Popconfirm>
+        </Space>
+      ),
+    },
+
+  ];
+
+  function search() {
+    const filter = employee => employee.username.includes(searchUsername) && employee.nickname.includes(searchNickname)
+    setDataSource(JSON.parse(localStorage.getItem('employees')).filter(filter))
+  }
+
+  function reset() {
+    setSearchUsername('')
+    setSearchNickname('')
+    setDataSource(JSON.parse(localStorage.getItem('employees')))
+  }
+
+  const onSelectChange = (newSelectedRowKeys) => {
+    setSelectedRowKeys(newSelectedRowKeys);
+  };
+  const rowSelection = {
+    selectedRowKeys,
+    onChange: onSelectChange,
+  };
 
   return (
     <>
       <PageContainer>
         <Card style={{ marginBottom: '30px' }}>
           <Space>
-            <Input placeholder='搜索账号' />
-            <Input placeholder='搜索姓名' />
-            <Button>查询</Button>
-            <AddEmployee />
+            <Input placeholder='搜索账号' value={searchUsername} onChange={(e) => setSearchUsername(e.target.value)} />
+            <Input placeholder='搜索姓名' value={searchNickname} onChange={(e) => setSearchNickname(e.target.value)} />
+            <Button onClick={search}>查询</Button>
+            <Button onClick={reset}>重置</Button>
+            <AddEmployee setDataSource={setDataSource} />
+            <Popconfirm title='确认删除？' disabled={!selectedRowKeys.length} onConfirm={() => {
+              console.log(selectedRowKeys);
+              let newData = JSON.parse(localStorage.getItem('employees'))
+              for (const selectedRowKey of selectedRowKeys) {
+                newData = newData.filter(employee => employee.id !== selectedRowKey)
+              }
+              localStorage.setItem('employees', JSON.stringify(newData))
+              setDataSource(newData)
+              setSelectedRowKeys([])
+              message.success('删除成功')
+            }}>
+              <Button type='primary' danger disabled={!selectedRowKeys.length}>
+                多选删除
+              </Button>
+            </Popconfirm>
           </Space>
         </Card>
         <Card>
-          <Table columns={columns} dataSource={data} />
+          <Table rowSelection={rowSelection} columns={columns} dataSource={dataSource} />
         </Card>
       </PageContainer>
 

@@ -2,6 +2,7 @@ import { PlusOutlined } from '@ant-design/icons';
 import {
     DrawerForm,
     ModalForm,
+    ProFormTextArea,
     ProForm,
     ProFormSelect,
     ProFormText,
@@ -9,7 +10,7 @@ import {
 import { Button, Form, message } from 'antd';
 
 
-const waitTime = (time = 100) => {
+const waitTime = (time = 500) => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(true);
@@ -20,12 +21,11 @@ const waitTime = (time = 100) => {
 
 export default ({ setDataSource }) => {
     const [form] = Form.useForm();
-    
+
     async function handleFinish(values) {
-        await waitTime(1000);
+        await waitTime(500);
         // console.log(values);
         values.create_time = (new Date).toLocaleString()
-        values.status = true
         values.id = +new Date()
         values.key = values.id
         setDataSource(data => {
@@ -33,7 +33,7 @@ export default ({ setDataSource }) => {
                 ...data,
                 values
             ]
-            localStorage.setItem('employees', JSON.stringify(newData))
+            localStorage.setItem('clients', JSON.stringify(newData))
             return newData
         })
         message.success('添加成功');
@@ -42,11 +42,11 @@ export default ({ setDataSource }) => {
 
     return (
         <DrawerForm
-            title="添加员工"
+            title="添加客户"
             trigger={
                 <Button type="primary">
                     <PlusOutlined />
-                    添加员工
+                    添加客户
                 </Button>
             }
             form={form}
@@ -59,23 +59,8 @@ export default ({ setDataSource }) => {
             <ProForm.Group>
                 <ProFormText
                     width="md"
-                    name="username"
-                    label="员工账号"
-                    placeholder="请输入账号"
-                    rules={[{ required: true, message: '输入员工账号' }]}
-                />
-                <ProFormText.Password
-                    width="md"
-                    name="password"
-                    label="员工密码"
-                    placeholder="请输入密码"
-                    rules={[{ required: true, message: '输入员工密码' }]}
-                />
-                <ProFormText
-                    width="sm"
-                    name="nickname"
-                    label="员工姓名"
-                    placeholder="请输入姓名"
+                    name="name"
+                    label="客户姓名"
                     rules={[{ required: true }]}
                 />
                 <ProFormSelect
@@ -87,29 +72,24 @@ export default ({ setDataSource }) => {
                     name="gender"
                     label="性别"
                     rules={[{ required: true }]}
+                    />
+                <ProFormText
+                   width="xs"
+                   name="age"
+                   label="年龄"
                 />
                 <ProFormText
                     width="md"
                     name="phone_number"
-                    label="员工手机号"
-                    placeholder="请输入手机号"
-                />
-                <ProFormSelect
-                    valueEnum={{
-                        人事部: '人事部',
-                        客户部: '客户部',
-                        配件部: '配件部',
-                        售后部: '售后部',
-                        财务部: '财务部',
-                    }}
-                    width="xs"
-                    name="department"
-                    label="员工部门"
+                    label="客户手机号"
                     rules={[{ required: true }]}
-                />
+                    />
+                <ProFormTextArea
+                    width="md"
+                    name="address"
+                    label="客户地址"
+                    />
             </ProForm.Group>
-
-
 
         </DrawerForm>
     );
