@@ -79,63 +79,15 @@ const columns = [
   },
 
 ];
-const data = [
-  {
-    id: 1,
-    key: 1,
-    name: '宝马X5 2.0T气门室盖',
-    category: '发动机配件',
-    number: 10,
-    unit: '个',
-    notes: '宝马X5气门室盖',
-  },
-  {
-    id: 2,
-    key: 2,
-    name: '宝马X5 3.0L发动机皮带',
-    category: '发动机配件',
-    number: 20,
-    unit: '个',
-    notes: '宝马X5发动机皮带',
-  },
-  {
-    id: 3,
-    key: 3,
-    name: '宝马5系3.0L正时链条',
-    category: '发动机配件',
-    number: 20,
-    unit: '个',
-    notes: null,
-  },
-  {
-    id: 4,
-    key: 4,
-    name: '宝马X3 2.0T进气管',
-    category: '进气排气配件',
-    number: 40,
-    unit: '个',
-    notes: null,
-  },
-  {
-    id: 5,
-    key: 5,
-    name: '宝马X5 3.0L进气管',
-    category: '进气排气配件',
-    number: 50,
-    unit: '个',
-    notes: '宝马X5发动机皮带',
-  },
 
-];
 
 function EmployeeManagement() {
-  const [dataSource, useDataSource] = useState([]);
+  const [dataSource, setDataSource] = useState([]);
 
   useEffect(() => {
-    (async () => {
-      // const data = await getEmployees()
-      // console.log(data);
-    })();
+    const localData = localStorage.getItem('carParts')
+
+    setDataSource(JSON.parse(localData))
   }, []);
 
   return (
@@ -149,7 +101,7 @@ function EmployeeManagement() {
           </Space>
         </Card>
         <Card>
-          <Table columns={columns} dataSource={data} />
+          <Table columns={columns} dataSource={dataSource} />
         </Card>
       </PageContainer>
 

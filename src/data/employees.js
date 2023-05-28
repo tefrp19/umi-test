@@ -69,7 +69,7 @@ const data = [
         key: 1684982129825,
         username: 'employee5',
         password: 'employee5',
-        nickname: '林子帆',
+        nickname: '夏志豪',
         gender: '男',
         phone_number: '19114031807',
         create_time: '2023/4/24 23:27:20',

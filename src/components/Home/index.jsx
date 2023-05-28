@@ -2,12 +2,14 @@ import { Card, Col, Row } from 'antd';
 import { ArrowDownOutlined, ArrowUpOutlined, ContainerTwoTone, MoneyCollectTwoTone } from '@ant-design/icons';
 import { Statistic } from '@ant-design/pro-components';
 import { ProCard, StatisticCard } from '@ant-design/pro-components';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Line from './Line';
 import RightChart from './RightChart';
 
-export default function () {
+export default function() {
+  useEffect(() => {
 
+  }, []);
   return (
     <>
       <ProCard

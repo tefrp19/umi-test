@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="022cd9c9-de06-4810-bb85-57d8b7250261" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/data/carPartOrders.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/carParts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mock/userAPI.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CarPartManagement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CarPartManagement/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CarPartOrderManagement/CarPartOrderDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CarPartOrderManagement/CarPartOrderDetail.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CarPartOrderManagement/OrderDetailTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CarPartOrderManagement/OrderDetailTable.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CarPartOrderManagement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CarPartOrderManagement/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +50,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="pnpm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="D:\TEfrp\project\umi-test\node_modules\prettier" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="ts.external.directory.path" value="D:\TEfrp\project\umi-test\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -98,12 +108,26 @@
       <workItem from="1684127697923" duration="10089000" />
       <workItem from="1684217655161" duration="7327000" />
       <workItem from="1684325596264" duration="340000" />
-      <workItem from="1684459336632" duration="1084000" />
+      <workItem from="1684459336632" duration="2898000" />
+      <workItem from="1684637394241" duration="17000" />
+      <workItem from="1685278195055" duration="304000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

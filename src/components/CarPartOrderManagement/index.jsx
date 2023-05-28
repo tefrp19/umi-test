@@ -50,20 +50,31 @@ const columns = [
     title: '创建时间',
     dataIndex: 'create_time',
     key: 'create_time',
-    render: (text) => (new Date(text)).toLocaleString(),
+    sorter: (a, b) => new Date(a.create_time) - new Date(b.create_time),
+  },
+  {
+    title: '更新时间',
+    dataIndex: 'update_time',
+    key: 'update_time',
     sorter: (a, b) => new Date(a.create_time) - new Date(b.create_time),
   },
   {
     title: '完成时间',
     dataIndex: 'finish_time',
     key: 'finish_time',
-    render: (text) => {
-      if (!text) return null;
-      return (new Date(text)).toLocaleString();
-    },
     sorter: (a, b) => new Date(a.create_time) - new Date(b.create_time),
   },
-
+  {
+    title: '总费用',
+    dataIndex: 'total',
+    key: 'total',
+    sorter: (a, b) => new Date(a.total) - new Date(b.total),
+  },
+  {
+    title: '备注',
+    dataIndex: 'notes',
+    key: 'notes',
+  },
   {
     title: '操作',
     key: 'action',
@@ -83,45 +94,18 @@ const columns = [
   },
 
 ];
-const data = [
-  {
-    id: 1,
-    key: 1,
-    status: '审核中',
-    create_time: '2023-04-22T13:27:20.000Z',
-    finish_time: null,
-    notes: 'xxxxxxxxxxxxx',
-  },
-  {
-    id: 2,
-    key: 2,
-    status: '已完成',
-    create_time: '2023-04-21T13:27:20.000Z',
-    finish_time: '2023-04-21T13:27:20.000Z',
-    notes: 'xxxxxxxxxxxxx',
-  },
-  {
-    id: 3,
-    key: 3,
-    status: '审核成功',
-    create_time: '2023-04-21T15:27:20.000Z',
-    finish_time: null,
-    notes: 'xxxxxxxxxxxxx',
-  },
 
-];
 
 function EmployeeManagement() {
-  const [dataSource, useDataSource] = useState([]);
+  const [dataSource, setDataSource] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   // console.log(searchParams.get('carPartId'));  // b
   // console.log(searchParams.toString()); // a=b
 
   useEffect(() => {
-    (async () => {
-      // const data = await getEmployees()
-      // console.log(data);
-    })();
+    const localData = localStorage.getItem('carPartOrders')
+
+    setDataSource(JSON.parse(localData))
   }, []);
 
   return (
@@ -135,7 +119,7 @@ function EmployeeManagement() {
           </Space>
         </Card>
         <Card>
-          <Table columns={columns} dataSource={data} />
+          <Table columns={columns} dataSource={dataSource} />
         </Card>
 
       </PageContainer>

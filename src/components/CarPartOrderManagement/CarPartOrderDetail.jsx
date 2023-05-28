@@ -3,28 +3,36 @@ import { PageContainer } from '@ant-design/pro-components';
 import { Button, Card, Space, Steps } from 'antd';
 import OrderDetailTable from './OrderDetailTable';
 import EmployeeActionTable from './EmployeeActionTable';
-
-export default function() {
+import { useState, useEffect } from "react";
+export default function () {
   const params = useParams();
-  console.log(params);
+  const [carPartOrderDetail, setCarPartOrderDetail] = useState({})
+
+  useEffect(() => {
+    const carPartOrders = JSON.parse(localStorage.getItem('carPartOrders'))
+    const carPartOrderDetail = carPartOrders.find(c => c.id === Number(params.id))
+    console.log(carPartOrderDetail);
+    setCarPartOrderDetail(carPartOrderDetail)
+    
+  }, [])
   return (
     <>
       <PageContainer>
         <Card style={{ padding: '0 20px', marginBottom: '50px' }}>
           <Steps
-            current={2}
+            current={carPartOrderDetail?.process?.length}
             items={[
               {
                 title: '提交订单',
-                description: '2023-04-15 12:24:27',
+                description: carPartOrderDetail?.process?.at(0)?.action_time,
               },
               {
                 title: '审核通过',
-                description: null,
+                description: carPartOrderDetail?.process?.at(1)?.action_time,
               },
               {
                 title: '已完成',
-                // description:'2018-09-15 12:24:27',
+                description:carPartOrderDetail?.process?.at(2)?.action_time,
               },
             ]}
           />
@@ -60,7 +68,7 @@ export default function() {
 
           {/*订单详情表格*/}
           <Card style={{ marginBottom: '20px' }}>
-            <OrderDetailTable />
+            <OrderDetailTable carParts={carPartOrderDetail.carParts} setCarPartOrderDetail={setCarPartOrderDetail}/>
           </Card>
           <Card>
             {/*员工操作信息表格*/}
