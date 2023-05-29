@@ -1,14 +1,15 @@
-import { Access, useAccess, useParams } from '@umijs/max';
+import { Access, history, useAccess, useParams, useModel } from '@umijs/max';
 import { PageContainer } from '@ant-design/pro-components';
 import { Button, Card, Space, Steps, Popconfirm } from 'antd';
 import OrderDetailTable from './OrderDetailTable';
 import EmployeeActionTable from './EmployeeActionTable';
+import AddCarPart from './AddCarPart';
 import { useState, useEffect } from "react";
 export default function () {
   const params = useParams();
   const [carPartOrderDetail, setCarPartOrderDetail] = useState({})
-  const { carPartDepartmentAccess } = useAccess()
-  console.log(carPartDepartmentAccess);
+  const { carPartDepartmentAccess, financeDepartmentAccess } = useAccess()
+  const { initialState } = useModel('@@initialState');
   useEffect(() => {
     const carPartOrders = JSON.parse(localStorage.getItem('carPartOrders'))
     const carPartOrderDetail = carPartOrders.find(c => c.id === Number(params.id))
@@ -53,20 +54,82 @@ export default function () {
               <div style={{ flex: '1' }} />
               <Space>
                 <Access accessible={carPartDepartmentAccess}>
-                  <Popconfirm title='确认提交？' onConfirm={() => {
+                  <Popconfirm title='确认提交？' disabled={carPartOrderDetail?.process?.length !== 0} onConfirm={() => {
+                    setCarPartOrderDetail(detail => {
+                      const { user } = initialState
+                      const { id, nickname, department } = user
+                      return {
+                        ...detail,
+                        process: [...detail.process, {
+                          id,
+                          key: new Date().toLocaleString(),
+                          nickname,
+                          department,
+                          action_time: new Date().toLocaleString(),
+                          notes: '申请采购'
+                        }]
+                      }
+                    })
+
                   }}>
-                    <Button>
+                    <Button disabled={carPartOrderDetail?.process?.length !== 0}>
                       提交审核
                     </Button>
                   </Popconfirm>
                 </Access>
-                <Button type='primary' disabled>
-                  审核订单
-                </Button>
+                <Access accessible={financeDepartmentAccess}>
+                  <Popconfirm title='审核是否通过？' onText='通过' cancelText='拒绝' disabled={carPartOrderDetail?.process?.length !== 1} onConfirm={() => {
+                    setCarPartOrderDetail(detail => {
+                      const { user } = initialState
+                      const { id, nickname, department } = user
+                      return {
+                        ...detail,
+                        process: [...detail.process, {
+                          id,
+                          key: new Date().toLocaleString(),
+                          nickname,
+                          department,
+                          action_time: new Date().toLocaleString(),
+                          notes: '同意采购'
+                        }]
+                      }
+                    })
+                  }}>
+                    <Button type='primary' disabled={carPartOrderDetail?.process?.length !== 1} >
+                      审核订单
+                    </Button>
+                  </Popconfirm>
+                </Access>
+                <Access accessible={carPartDepartmentAccess}>
+                  <Popconfirm title='是否已完成采购工作？' disabled={carPartOrderDetail?.process?.length !== 2} onConfirm={() => {
+                    setCarPartOrderDetail(detail => {
+                      const { user } = initialState
+                      const { id, nickname, department } = user
+                      return {
+                        ...detail,
+                        process: [...detail.process, {
+                          id,
+                          key: new Date().toLocaleString(),
+                          nickname,
+                          department,
+                          action_time: new Date().toLocaleString(),
+                          notes: '完成采购'
+                        }]
+                      }
+                    })
+                  }}>
+                    <Button type='primary' disabled={carPartOrderDetail?.process?.length !== 2} >
+                      完成订单
+                    </Button>
+                  </Popconfirm>
+                </Access>
+
                 <Button type='primary' danger>
                   删除订单
                 </Button>
-                <Button>
+                <Button onClick={() => {
+                  history.push('/store/carPartOrderManagement')
+                }}>
                   返回
                 </Button>
 
@@ -78,15 +141,15 @@ export default function () {
           {/*订单详情表格*/}
           <Card style={{ marginBottom: '20px' }}>
             <Space>
-              <Button type='primary'>添加采购配件</Button>
+              <AddCarPart setCarPartOrderDetail={setCarPartOrderDetail} />
             </Space>
           </Card>
           <Card style={{ marginBottom: '20px' }}>
-            <OrderDetailTable carParts={carPartOrderDetail.carParts} setCarPartOrderDetail={setCarPartOrderDetail} />
+            <OrderDetailTable carParts={carPartOrderDetail?.carParts} setCarPartOrderDetail={setCarPartOrderDetail} />
           </Card>
           <Card>
             {/*员工操作信息表格*/}
-            <EmployeeActionTable />
+            <EmployeeActionTable process={carPartOrderDetail?.process} />
           </Card>
         </Card>
 

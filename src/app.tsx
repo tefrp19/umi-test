@@ -19,7 +19,6 @@ export async function getInitialState() {
 
   console.log('getInitialState');
   const user = localStorage.getItem('user');
-  console.log('user', user);
 
   if (!user) history.push('/login')
 
@@ -34,35 +33,6 @@ export const layout = ({ initialState }) => {
     siderWidth: 310,
     menu: {
       locale: false,
-      // 每当 initialState?.currentUser?.userid 发生修改时重新执行 request
-      // params: {
-      //   userId: initialState?.currentUser?.userid,
-      // },
-      // request: async () => {
-      //   // initialState.currentUser 中包含了所有用户信息
-      //   // const menuData = await fetchMenuData();
-      //   const menuData = [
-      //     {
-      //       name: '首页',
-      //       path: '/home',
-      //     }, {
-      //       name: '系统管理',
-      //       path: '/system',
-      //       icon: <SettingTwoTone />,
-      //       routes: [
-      //         {
-      //           name: '部门管理',
-      //           path: 'departmentManagement',
-      //         },
-      //         {
-      //           name: '员工管理',
-      //           path: 'employeeManagement',
-      //         },
-      //       ],
-      //     },
-      //   ];
-      //   return menuData;
-      // },
     },
 
     logout: () => {

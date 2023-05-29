@@ -8,20 +8,19 @@ const columns = [
   },
   {
     title: '员工姓名',
-    dataIndex: 'EmployeeName',
-    key: 'EmployeeName',
+    dataIndex: 'nickname',
+    key: 'nickname',
   },
   {
     title: '部门',
-    dataIndex: 'role',
-    key: 'role',
+    dataIndex: 'department',
+    key: 'department',
   },
   {
     title: '操作时间',
     dataIndex: 'action_time',
     key: 'action_time',
-    render: (text) => (new Date(text)).toLocaleString(),
-    sorter: (a, b) => new Date(a.create_time) - new Date(b.create_time),
+    sorter: (a, b) => new Date(a.action_time) - new Date(b.action_time),
   },
   {
     title: '备注',
@@ -30,28 +29,9 @@ const columns = [
   },
 
 ];
-const data = [
-  {
-    id: 1,
-    key: 1,
-    EmployeeId: 1,
-    EmployeeName: '张三',
-    role:'配件部',
-    action_time: '2023-04-21T13:27:20.000Z',
-    notes: '申请采购',
-  },
-  {
-    id: 2,
-    key: 2,
-    EmployeeId: 2,
-    EmployeeName: '李四',
-    role:'财务部',
-    action_time: '2023-04-22T13:27:20.000Z',
-    notes: '同意采购，申请成功',
-  },
-];
-export default function(){
 
-  return <Table title={()=>'操作信息'} columns={columns} dataSource={data} />
+export default function ({ process }) {
+  console.log(process);
+  return <Table title={() => '操作信息'} columns={columns} dataSource={process} />
 
 }

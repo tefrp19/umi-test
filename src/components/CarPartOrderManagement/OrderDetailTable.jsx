@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 const columns = [
   {
-    title: '配件号',
+    title: '配件编号',
     dataIndex: 'id',
     key: 'id',
   },

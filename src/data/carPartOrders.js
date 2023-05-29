@@ -1,12 +1,33 @@
 const data = [
     {
+        id: 1685276308930,
+        key: 1685276308930,
+        status: '未提交订单',
+        create_time: '2023/5/22 23:27:20',
+        update_time: null,
+        finish_time: null,
+        // total: 2000,
+        notes: 'xxxxxxxxxxxxx',
+        carParts: [
+            {
+                id: 1685277486631,
+                key: 1685277486631,
+                name: '宝马X5 2.0T气门室盖',
+                firm: '绵阳市斯普润市政工程建设有限公司',
+                number: 10,
+                notes: '宝马X5气门室盖',
+            },
+        ],
+        process: []
+    },
+    {
         id: 1685276308931,
         key: 1685276308931,
         status: '审核中',
         create_time: '2023/5/22 23:27:20',
         update_time: null,
         finish_time: null,
-        total: 2000,
+        // total: 2000,
         notes: 'xxxxxxxxxxxxx',
         carParts: [
             {
@@ -36,7 +57,7 @@ const data = [
                 notes: null,
             },
         ],
-        process:[
+        process: [
             {
                 id: 1684982129823,
                 key: 1684982129823,
@@ -84,7 +105,7 @@ const data = [
                 notes: null,
             },
         ],
-        process:[
+        process: [
             {
                 id: 1684982129823,
                 key: 1684982129823,
@@ -122,7 +143,7 @@ const data = [
                 firm: '绵阳市斯普润市政工程建设有限公司',
                 number: 10,
                 price: 100,
-                total:1000,
+                total: 1000,
                 notes: '宝马X5气门室盖',
             },
             {
@@ -132,7 +153,7 @@ const data = [
                 firm: '绵阳市燊达机械加工有限公司',
                 number: 20,
                 price: 100,
-                total:2000,
+                total: 2000,
                 notes: '宝马X5发动机皮带',
             },
             {
@@ -142,11 +163,11 @@ const data = [
                 firm: '绵阳市斯普润市政工程建设有限公司',
                 number: 20,
                 price: 100,
-                total:2000,
+                total: 2000,
                 notes: null,
             },
         ],
-        process:[
+        process: [
             {
                 id: 1684982129823,
                 key: 1684982129823,
@@ -167,7 +188,7 @@ const data = [
             },
             {
                 id: 1684982129823,
-                key: 1684982129823,
+                key: 1684982129824,
                 nickname: '林子帆',
                 gender: '男',
                 department: '配件部',
