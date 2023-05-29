@@ -1,19 +1,20 @@
-import { useParams } from '@umijs/max';
+import { Access, useAccess, useParams } from '@umijs/max';
 import { PageContainer } from '@ant-design/pro-components';
-import { Button, Card, Space, Steps } from 'antd';
+import { Button, Card, Space, Steps, Popconfirm } from 'antd';
 import OrderDetailTable from './OrderDetailTable';
 import EmployeeActionTable from './EmployeeActionTable';
 import { useState, useEffect } from "react";
 export default function () {
   const params = useParams();
   const [carPartOrderDetail, setCarPartOrderDetail] = useState({})
-
+  const { carPartDepartmentAccess } = useAccess()
+  console.log(carPartDepartmentAccess);
   useEffect(() => {
     const carPartOrders = JSON.parse(localStorage.getItem('carPartOrders'))
     const carPartOrderDetail = carPartOrders.find(c => c.id === Number(params.id))
     console.log(carPartOrderDetail);
     setCarPartOrderDetail(carPartOrderDetail)
-    
+
   }, [])
   return (
     <>
@@ -32,7 +33,7 @@ export default function () {
               },
               {
                 title: '已完成',
-                description:carPartOrderDetail?.process?.at(2)?.action_time,
+                description: carPartOrderDetail?.process?.at(2)?.action_time,
               },
             ]}
           />
@@ -51,6 +52,14 @@ export default function () {
               </div>
               <div style={{ flex: '1' }} />
               <Space>
+                <Access accessible={carPartDepartmentAccess}>
+                  <Popconfirm title='确认提交？' onConfirm={() => {
+                  }}>
+                    <Button>
+                      提交审核
+                    </Button>
+                  </Popconfirm>
+                </Access>
                 <Button type='primary' disabled>
                   审核订单
                 </Button>
@@ -68,7 +77,12 @@ export default function () {
 
           {/*订单详情表格*/}
           <Card style={{ marginBottom: '20px' }}>
-            <OrderDetailTable carParts={carPartOrderDetail.carParts} setCarPartOrderDetail={setCarPartOrderDetail}/>
+            <Space>
+              <Button type='primary'>添加采购配件</Button>
+            </Space>
+          </Card>
+          <Card style={{ marginBottom: '20px' }}>
+            <OrderDetailTable carParts={carPartOrderDetail.carParts} setCarPartOrderDetail={setCarPartOrderDetail} />
           </Card>
           <Card>
             {/*员工操作信息表格*/}

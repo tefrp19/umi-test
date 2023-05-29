@@ -13,7 +13,6 @@ function Login() {
   }, []);
 
   const onFinish = (values) => {
-    console.log(values);
     const { username, password } = values
    
     // 1.判断用户名是否存在

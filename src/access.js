@@ -10,18 +10,17 @@
 // };
 
 export default function (initialState) {
-  const { userId, role,user } = initialState;
+  const { user } = initialState;
+  console.log('access user:',user);
   // console.log('initialState',initialState);
   // TODO 登录权限
-  const department=user?.department
+  const department = user?.department
   // console.log(department);
   return {
-    accessManagement:department==='admin',
-    departmentManagement:department==='admin',
-    employeeManagement:['admin','人事部'].includes(department),
-    canDeleteFoo: (foo) => {
-      return foo.ownerId === userId;
-    },
-    canReadEmployeeManagement:['admin','人事部'].includes(department)
+    accessManagement: department === 'admin',
+    departmentManagement: department === 'admin',
+    employeeManagement: ['admin', '人事部'].includes(department),
+    carPartDepartmentAccess: ['admin', '配件部'].includes(department),
+    canReadEmployeeManagement: ['admin', '人事部'].includes(department)
   };
 }

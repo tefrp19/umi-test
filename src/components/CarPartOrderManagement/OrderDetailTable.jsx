@@ -41,18 +41,31 @@ const columns = [
     dataIndex: 'notes',
     key: 'notes',
   },
+  {
+    title: '操作',
+    key: 'action',
+    render: (_, record) => (
+      <Space size='middle'>
+        <a type='text'>修改信息</a>
+        <Popconfirm title='确认删除？' onConfirm={() => {
+        }}>
+          <Button type='text' danger>
+            删除
+          </Button>
+        </Popconfirm>
+      </Space>
+    ),
+  },
 
 
 ];
 
-export default function ({carParts,setCarParts}) {
-  const [dataSource, setDataSource] = useState([]);
- 
+export default function ({ carParts, setCarParts }) {
 
   useEffect(() => {
-    
-
     // setDataSource(carParts)
+
+
 
   }, [])
 
