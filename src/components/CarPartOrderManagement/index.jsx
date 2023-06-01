@@ -107,7 +107,15 @@ function EmployeeManagement() {
 
     setDataSource(JSON.parse(localData))
   }, []);
+  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
 
+  const onSelectChange = (newSelectedRowKeys) => {
+    setSelectedRowKeys(newSelectedRowKeys);
+  };
+  const rowSelection = {
+    selectedRowKeys,
+    onChange: onSelectChange,
+  };
   return (
     <>
       <PageContainer>
@@ -115,11 +123,18 @@ function EmployeeManagement() {
           <Space>
             <Input placeholder='搜索订单id' />
             <Input placeholder='搜索订单备注' />
+            <Button >查询</Button>
+            <Button >重置</Button>
             <Button type='primary'>新增订单</Button>
+            <Popconfirm title='确认删除？' disabled={!selectedRowKeys.length} >
+              <Button type='primary' danger disabled={!selectedRowKeys.length}>
+                多选删除
+              </Button>
+            </Popconfirm>
           </Space>
         </Card>
         <Card>
-          <Table columns={columns} dataSource={dataSource} />
+          <Table rowSelection={rowSelection} columns={columns} dataSource={dataSource} />
         </Card>
 
       </PageContainer>

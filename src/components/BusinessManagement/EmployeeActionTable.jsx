@@ -9,13 +9,13 @@ const columns = [
   },
   {
     title: '员工姓名',
-    dataIndex: 'EmployeeName',
-    key: 'EmployeeName',
+    dataIndex: 'nickname',
+    key: 'nickname',
   },
   {
     title: '部门',
-    dataIndex: 'role',
-    key: 'role',
+    dataIndex: 'department',
+    key: 'department',
   },
   {
     title: '操作时间',
@@ -31,37 +31,9 @@ const columns = [
   },
 
 ];
-const data = [
-  {
-    id: 1,
-    key: 1,
-    EmployeeId: 1,
-    EmployeeName: '张三',
-    role: '客户部',
-    action_time: '2023-04-21T13:27:20.000Z',
-    notes: '客户主动进厂维修',
-  },
-  {
-    id: 2,
-    key: 2,
-    EmployeeId: 2,
-    EmployeeName: '李四',
-    role: '售后部',
-    action_time: '2023-04-22T07:27:20.000Z',
-    notes: '汽车维修，消耗宝马X5 2.0T气门室盖1个',
-  },
-  {
-    id: 3,
-    key: 3,
-    EmployeeId: 3,
-    EmployeeName: '王五',
-    role: '配件部',
-    action_time: '2023-04-22T09:27:20.000Z',
-    notes: '配件出库，出库宝马X5 2.0T气门室盖1个',
-  },
-];
-export default function() {
 
-  return <Table columns={columns} dataSource={data} />;
+export default function({ process }) {
+
+  return <Table columns={columns} dataSource={process} />;
 
 }

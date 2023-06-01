@@ -5,9 +5,7 @@ import { PageContainer } from '@ant-design/pro-components';
 import AddClient from "./AddClient";
 import UpdateClient from "./UpdateClient";
 
-
-
-function EmployeeManagement() {
+export default function () {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const [dataSource, setDataSource] = useState([]);
   const [searchId, setSearchId] = useState('')
@@ -100,7 +98,7 @@ function EmployeeManagement() {
   ];
 
   function search() {
-    const filter = client =>  String(client.id).includes(searchId) && client.name.includes(searchName) && client.phone_number.includes(searchPhoneNumber) && client.address.includes(searchAddress)
+    const filter = client => String(client.id).includes(searchId) && client.name.includes(searchName) && client.phone_number.includes(searchPhoneNumber) && client.address.includes(searchAddress)
     setDataSource(JSON.parse(localStorage.getItem('clients')).filter(filter))
   }
 
@@ -157,6 +155,3 @@ function EmployeeManagement() {
     </>
   );
 }
-
-export default EmployeeManagement;
-

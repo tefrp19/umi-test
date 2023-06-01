@@ -1,3 +1,4 @@
+import { useState,useEffect } from "react";
 import { PageContainer } from '@ant-design/pro-components';
 import { Button, Card, Input, Popconfirm, Space, Switch, Table, DatePicker } from 'antd';
 import { history } from '@umijs/max';
@@ -75,7 +76,7 @@ const columns = [
     title: '总金额',
     dataIndex: 'total',
     key: 'total',
-    sorter: (a, b) => a.total -b.total,
+    sorter: (a, b) => a.total - b.total,
   },
   {
     title: '操作',
@@ -96,55 +97,23 @@ const columns = [
   },
 
 ];
-const data = [
-  {
-    id: 1,
-    key: 1,
-    clientId: 1,
-    clientName: '张三',
-    carNumber: '川B123456',
-    event: '',
-    status: '联系客户',
-    create_time: '2023-04-21T15:27:20.000Z',
-    finish_time: null,
-    total: null,
-  },
-  {
-    id: 2,
-    key: 2,
-    clientId: 2,
-    clientName: '李四',
-    carNumber: '川B666666',
-    status: '回访中',
-    create_time: '2023-04-21T15:27:20.000Z',
-    finish_time: '2023-04-29T15:27:20.000Z',
-    total: 200,
-  },
-  {
-    id: 3,
-    key: 3,
-    clientId: 3,
-    clientName: '张三',
-    carNumber: '川B123456',
-    status: '完成业务',
-    create_time: '2023-04-21T15:27:20.000Z',
-    finish_time: '2023-04-28T15:27:20.000Z',
-    total: 0,
-  },
-  {
-    id: 4,
-    key: 4,
-    clientId: 4,
-    clientName: '张三',
-    carNumber: '川B123456',
-    status: '已结束',
-    create_time: '2023-04-21T15:27:20.000Z',
-    finish_time: '2023-04-28T15:27:20.000Z',
-    total: 300,
-  },
-];
-export default function() {
 
+export default function () {
+  const [dataSource, setDataSource] = useState([]);
+  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+
+  useEffect(() => {
+    const localData = localStorage.getItem('clientOrders')
+
+    setDataSource(JSON.parse(localData))
+  }, []);
+  const onSelectChange = (newSelectedRowKeys) => {
+    setSelectedRowKeys(newSelectedRowKeys);
+  };
+  const rowSelection = {
+    selectedRowKeys,
+    onChange: onSelectChange,
+  };
   return (
     <>
       <PageContainer>
@@ -154,13 +123,19 @@ export default function() {
             <Input placeholder='客户编号' />
             <Input placeholder='客户姓名' />
             <RangePicker />
-            <Button type='primary'>查询</Button>
+            <Button >查询</Button>
+            <Button >重置</Button>
             <Button type='primary'>添加工单</Button>
+            <Popconfirm title='确认删除？' disabled={!selectedRowKeys.length} >
+              <Button type='primary' danger disabled={!selectedRowKeys.length}>
+                多选删除
+              </Button>
+            </Popconfirm> 
           </Space>
         </Card>
 
         <Card>
-          <Table columns={columns} dataSource={data} />
+          <Table rowSelection={rowSelection} columns={columns} dataSource={dataSource} />
         </Card>
 
       </PageContainer>

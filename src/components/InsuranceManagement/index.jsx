@@ -3,9 +3,6 @@ import { Space, Table, Tag, Switch, Input, Button, Popconfirm, Card } from 'antd
 import { useEffect, useState } from 'react';
 import { PageContainer } from '@ant-design/pro-components';
 
-const onChange = (checked) => {
-  console.log(`switch to ${checked}`);
-};
 const columns = [
   {
     title: '保险编号',
@@ -16,14 +13,14 @@ const columns = [
     title: '保险名称',
     dataIndex: 'name',
     key: 'name',
-    filters:[
+    filters: [
       {
-        text:'第三者责任险',
-        value:'第三者责任险',
+        text: '第三者责任险',
+        value: '第三者责任险',
       },
       {
-        text:'车辆损失险',
-        value:'车辆损失险',
+        text: '车辆损失险',
+        value: '车辆损失险',
       },
     ],
     onFilter: (value, record) => {
@@ -86,90 +83,26 @@ const columns = [
   },
 
 ];
-const data = [
-  {
-    id: 1,
-    key: 1,
-    name: '第三者责任险',
-    clientId: 1,
-    clientName: '张三',
-    car_number:'川B123456',
-    start_date: '2023-5-06',
-    end_date: '2024-5-06',
-  },
-  {
-    id: 2,
-    key: 2,
-    name: '车辆损失险',
-    clientId: 2,
-    clientName: '李四',
-    car_number:'川B666666',
-    start_date: '2023-5-07',
-    end_date: '2024-5-08',
-  },
-  {
-    id: 3,
-    key: 3,
-    name: '第三者责任险',
-    clientId: 2,
-    clientName: '李四',
-    car_number:'川B666666',
-    start_date: '2023-5-07',
-    end_date: '2024-5-08',
-  },
-  {
-    id: 4,
-    key: 4,
-    name: '交强险',
-    clientId: 2,
-    clientName: '李四',
-    car_number:'川B666666',
-    start_date: '2023-5-07',
-    end_date: '2024-5-08',
-  },
-  {
-    id: 5,
-    key: 5,
-    name: '全车盗抢险',
-    clientId: 2,
-    clientName: '李四',
-    car_number:'川B666666',
-    start_date: '2023-5-07',
-    end_date: '2024-5-08',
-  },
-  {
-    id: 6,
-    key: 6,
-    name: '车上责任险',
-    clientId: 2,
-    clientName: '李四',
-    car_number:'川B666666',
-    start_date: '2023-5-07',
-    end_date: '2024-5-08',
-  },
-  {
-    id: 7,
-    key: 7,
-    name: '无过失责任险',
-    clientId: 2,
-    clientName: '李四',
-    car_number:'川B666666',
-    start_date: '2023-5-07',
-    end_date: '2024-5-08',
-  },
-
-];
-
-export default function() {
+export default function () {
   const [dataSource, useDataSource] = useState([]);
 
   useEffect(() => {
-    (async () => {
-      // const data = await getEmployees()
-      // console.log(data);
-    })();
+    let data = []
+    JSON.parse(localStorage.getItem('clients')).forEach(client => {
+      data = data.concat(client.insurances)
+    })
+    console.log(data);
+    useDataSource(data)
   }, []);
+  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
 
+  const onSelectChange = (newSelectedRowKeys) => {
+    setSelectedRowKeys(newSelectedRowKeys);
+  };
+  const rowSelection = {
+    selectedRowKeys,
+    onChange: onSelectChange,
+  };
   return (
     <>
       <PageContainer>
@@ -181,12 +114,18 @@ export default function() {
             <Input placeholder='搜索车主姓名' />
             <Input placeholder='搜索车牌号' />
             <Button>查询</Button>
+            <Button >重置</Button>
             <Button type='primary'>新增保险</Button>
+            <Popconfirm title='确认删除？' disabled={!selectedRowKeys.length} >
+              <Button type='primary' danger disabled={!selectedRowKeys.length}>
+                多选删除
+              </Button>
+            </Popconfirm>
           </Space>
         </Card>
 
         <Card>
-          <Table columns={columns} dataSource={data} />
+          <Table rowSelection={rowSelection} columns={columns} dataSource={dataSource} />
         </Card>
       </PageContainer>
 

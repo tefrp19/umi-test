@@ -55,12 +55,13 @@ export default function () {
               <Space>
                 <Access accessible={carPartDepartmentAccess}>
                   <Popconfirm title='确认提交？' disabled={carPartOrderDetail?.process?.length !== 0} onConfirm={() => {
-                    setCarPartOrderDetail(detail => {
+                    setCarPartOrderDetail(data => {
                       const { user } = initialState
                       const { id, nickname, department } = user
-                      return {
-                        ...detail,
-                        process: [...detail.process, {
+
+                      const newOrder = {
+                        ...data,
+                        process: [...data.process, {
                           id,
                           key: new Date().toLocaleString(),
                           nickname,
@@ -69,6 +70,16 @@ export default function () {
                           notes: '申请采购'
                         }]
                       }
+
+                      const newOrders = JSON.parse(localStorage.getItem('carPartOrders')).map(order => {
+                        if (order.id !== data.id) {
+                          return order
+                        }
+                        return newOrder
+                      })
+                      localStorage.setItem('carPartOrders', JSON.stringify(newOrders))
+
+                      return newOrder
                     })
 
                   }}>
@@ -79,20 +90,30 @@ export default function () {
                 </Access>
                 <Access accessible={financeDepartmentAccess}>
                   <Popconfirm title='审核是否通过？' onText='通过' cancelText='拒绝' disabled={carPartOrderDetail?.process?.length !== 1} onConfirm={() => {
-                    setCarPartOrderDetail(detail => {
+                    setCarPartOrderDetail(data => {
                       const { user } = initialState
                       const { id, nickname, department } = user
-                      return {
-                        ...detail,
-                        process: [...detail.process, {
+                      const newOrder = {
+                        ...data,
+                        process: [...data.process, {
                           id,
                           key: new Date().toLocaleString(),
                           nickname,
                           department,
                           action_time: new Date().toLocaleString(),
-                          notes: '同意采购'
+                          notes: '同意采购，审核通过'
                         }]
                       }
+
+                      const newOrders = JSON.parse(localStorage.getItem('carPartOrders')).map(order => {
+                        if (order.id !== data.id) {
+                          return order
+                        }
+                        return newOrder
+                      })
+                      localStorage.setItem('carPartOrders', JSON.stringify(newOrders))
+
+                      return newOrder
                     })
                   }}>
                     <Button type='primary' disabled={carPartOrderDetail?.process?.length !== 1} >
@@ -102,20 +123,30 @@ export default function () {
                 </Access>
                 <Access accessible={carPartDepartmentAccess}>
                   <Popconfirm title='是否已完成采购工作？' disabled={carPartOrderDetail?.process?.length !== 2} onConfirm={() => {
-                    setCarPartOrderDetail(detail => {
+                    setCarPartOrderDetail(data => {
                       const { user } = initialState
                       const { id, nickname, department } = user
-                      return {
-                        ...detail,
-                        process: [...detail.process, {
+                      const newOrder = {
+                        ...data,
+                        process: [...data.process, {
                           id,
                           key: new Date().toLocaleString(),
                           nickname,
                           department,
                           action_time: new Date().toLocaleString(),
-                          notes: '完成采购'
+                          notes: '采购完成，配件已入库'
                         }]
                       }
+
+                      const newOrders = JSON.parse(localStorage.getItem('carPartOrders')).map(order => {
+                        if (order.id !== data.id) {
+                          return order
+                        }
+                        return newOrder
+                      })
+                      localStorage.setItem('carPartOrders', JSON.stringify(newOrders))
+
+                      return newOrder
                     })
                   }}>
                     <Button type='primary' disabled={carPartOrderDetail?.process?.length !== 2} >
@@ -124,9 +155,13 @@ export default function () {
                   </Popconfirm>
                 </Access>
 
-                <Button type='primary' danger>
-                  删除订单
-                </Button>
+                <Popconfirm title='是否删除订单？' disabled={carPartOrderDetail?.process?.length !== 2} onConfirm={() => {
+                  throw new Error('can not read "data" of undefined')
+                }}>
+                  <Button type='primary' danger  >
+                    删除订单
+                  </Button>
+                </Popconfirm>
                 <Button onClick={() => {
                   history.push('/store/carPartOrderManagement')
                 }}>

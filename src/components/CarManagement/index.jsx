@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { PageContainer } from '@ant-design/pro-components';
 
 export default function () {
+  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+
   const [dataSource, setDataSource] = useState([]);
 
   const columns = [
@@ -88,7 +90,13 @@ export default function () {
 
 
   }, []);
-
+  const onSelectChange = (newSelectedRowKeys) => {
+    setSelectedRowKeys(newSelectedRowKeys);
+  };
+  const rowSelection = {
+    selectedRowKeys,
+    onChange: onSelectChange,
+  };
   return (
     <>
       <PageContainer>
@@ -97,11 +105,18 @@ export default function () {
             <Input placeholder='搜索车牌号' />
             <Input placeholder='搜索车主姓名' />
             <Input placeholder='搜索汽车型号' />
+            <Button >查询</Button>
+            <Button >重置</Button>
             <Button type='primary'>添加汽车</Button>
+            <Popconfirm title='确认删除？' disabled={!selectedRowKeys.length} >
+              <Button type='primary' danger disabled={!selectedRowKeys.length}>
+                多选删除
+              </Button>
+            </Popconfirm>
           </Space>
         </Card>
         <Card>
-          <Table columns={columns} dataSource={dataSource} />
+          <Table rowSelection={rowSelection} columns={columns} dataSource={dataSource} />
         </Card>
 
       </PageContainer>

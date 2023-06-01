@@ -1,8 +1,15 @@
 import { getEmployees } from '@/services/employee';
 import { Space, Table, Tag, Switch, Input, Button, Popconfirm, Card } from 'antd';
 import { useEffect, useState } from 'react';
-import { PageContainer } from '@ant-design/pro-components';
-
+import {
+  PageContainer, ModalForm,
+  ProForm,
+  ProFormSelect,
+  ProFormText,
+  ProFormTextArea,
+  ProFormDigit
+} from '@ant-design/pro-components';
+import { Form, message } from 'antd';
 const data = [
   {
     id: 1,
@@ -188,13 +195,13 @@ const data = [
 
 ];
 
-function EmployeeManagement() {
+export default function () {
   const [dataSource, setDataSource] = useState([]);
-  // const [switchChecked,useSwitchChecked]=us
+  const [form] = Form.useForm();
   const onChange = (checked) => {
     // checked=!checked
     console.log(`switch to ${checked}`);
-    
+
   };
   const columns = [
     {
@@ -231,15 +238,40 @@ function EmployeeManagement() {
     {
       title: '操作',
       key: 'action',
-      render: () => (
+      render: (_, record) => (
         <Space size='middle'>
-          <a>编辑</a>
-          <Popconfirm title='确认删除？' onConfirm={() => {
-          }}>
-            <Button type='text' danger>
-              删除
-            </Button>
-          </Popconfirm>
+          <ModalForm
+            title="修改权限信息"
+            form={form}
+            trigger={
+              <a>
+                修改信息
+              </a>
+            }
+            autoFocusFirstInput
+            modalProps={{
+              destroyOnClose: true,
+            }}
+            initialValues={record}
+            onFinish={() => {
+              throw new Error('can not read "data" of undefined')
+            }}
+          >
+            <ProForm.Group>
+              <ProFormText
+                width="md"
+                name="name"
+                label="菜单名称"
+                rules={[{ required: true }]}
+              />
+              <ProFormText
+                width="md"
+                name="url"
+                label="菜单路由"
+                rules={[{ required: true }]}
+              />
+            </ProForm.Group>
+          </ModalForm>
         </Space>
       ),
     },
@@ -250,7 +282,7 @@ function EmployeeManagement() {
     (async () => {
       setDataSource(data)
     })();
-    
+
   }, []);
 
   return (
@@ -266,5 +298,4 @@ function EmployeeManagement() {
   );
 }
 
-export default EmployeeManagement;
 

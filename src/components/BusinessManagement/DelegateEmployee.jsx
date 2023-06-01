@@ -21,36 +21,29 @@ const waitTime = (time = 500) => {
 };
 
 
-export default ({ setCarPartOrderDetail }) => {
+export default ({ clientOrderDetail,setClientOrderDetail }) => {
     const [form] = Form.useForm();
-    const carParts = JSON.parse(localStorage.getItem('carParts'))
+    const employees = JSON.parse(localStorage.getItem('employees'))
 
-    function getPartIds() {
+    function getEmployeeIds() {
         const valueEnum = {}
-        for (const carPart of carParts) {
-            valueEnum[carPart.id] = carPart.id
+        for (const employee of employees) {
+            valueEnum[employee.id] = employee.id
         }
         return valueEnum
     }
 
     async function handleFinish(values) {
         await waitTime(500);
-        console.log(values);
         values.id = Number(values.id)
         values.key = Number(new Date())
+        values.action_time = new Date().toLocaleString()
 
-        setCarPartOrderDetail(data => {
+        setClientOrderDetail(order => {
             const newOrder = {
-                ...data,
-                carParts: [...data.carParts, values]
+                ...order,
+                process: [...order.process, values]
             }
-            const newOrders = JSON.parse(localStorage.getItem('carPartOrders')).map(order => {
-                if (order.id !== data.id) {
-                    return order
-                }
-                return newOrder
-            })
-            localStorage.setItem('carPartOrders', JSON.stringify(newOrders))
             return newOrder
         })
         message.success('添加成功');
@@ -61,9 +54,9 @@ export default ({ setCarPartOrderDetail }) => {
         <DrawerForm
             title="添加采购配件"
             trigger={
-                <Button type="primary">
+                <Button type="primary" disabled={clientOrderDetail?.process?.length>=4}>
                     <PlusOutlined />
-                    添加采购配件
+                    委派员工
                 </Button>
             }
             form={form}
@@ -78,45 +71,28 @@ export default ({ setCarPartOrderDetail }) => {
                     name="id"
                     width="sm"
                     label="采购配件编号"
-                    valueEnum={getPartIds()}
+                    valueEnum={getEmployeeIds()}
                     rules={[{ required: true }]}
                     onChange={(value) => {
                         if (value) {
-                            const partName = carParts.find(part => part.id === Number(value)).name
+                            const { nickname, department } = employees.find(employee => employee.id === Number(value))
                             form.setFieldsValue({
-                                name: partName
+                                nickname,
+                                department
                             })
                         }
                     }}
                 />
                 <ProFormText
                     width="sm"
-                    name="name"
-                    label="配件名称"
+                    name="nickname"
+                    label="员工姓名"
                     rules={[{ required: true }]}
                 />
                 <ProFormText
                     width="sm"
-                    name="firm"
-                    label="供应商"
-                    rules={[{ required: true }]}
-                />
-                <ProFormDigit
-                    width="xs"
-                    name="number"
-                    label="数量"
-                    rules={[{ required: true }]}
-                />
-                <ProFormDigit
-                    width="xs"
-                    name="price"
-                    label="单价"
-                    rules={[{ required: true }]}
-                />
-                <ProFormDigit
-                    width="xs"
-                    name="total"
-                    label="总价"
+                    name="department"
+                    label="部门"
                     rules={[{ required: true }]}
                 />
                 <ProFormTextArea

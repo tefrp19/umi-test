@@ -39,6 +39,18 @@ const columns = [
         text: '外观内饰配件',
         value: '外观内饰配件',
       },
+      {
+        text: '行走悬挂配件',
+        value: '行走悬挂配件',
+      },
+      {
+        text: '转向系统配件',
+        value: '转向系统配件',
+      },
+      {
+        text: '电气系统配件',
+        value: '电气系统配件',
+      },
     ],
     onFilter: (value, record) => record.category.indexOf(value) === 0,
   },
@@ -82,6 +94,8 @@ const columns = [
 
 
 function EmployeeManagement() {
+  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+
   const [dataSource, setDataSource] = useState([]);
 
   useEffect(() => {
@@ -89,19 +103,33 @@ function EmployeeManagement() {
 
     setDataSource(JSON.parse(localData))
   }, []);
-
+  const onSelectChange = (newSelectedRowKeys) => {
+    setSelectedRowKeys(newSelectedRowKeys);
+  };
+  const rowSelection = {
+    selectedRowKeys,
+    onChange: onSelectChange,
+  };
   return (
     <>
       <PageContainer>
         <Card style={{ marginBottom: '30px' }}>
           <Space>
+            <Input placeholder='搜索配件编号' />
             <Input placeholder='搜索配件名称' />
             <Input placeholder='搜索配件备注' />
+            <Button >查询</Button>
+            <Button >重置</Button>
             <Button type='primary'>新增配件</Button>
+            <Popconfirm title='确认删除？' disabled={!selectedRowKeys.length} >
+              <Button type='primary' danger disabled={!selectedRowKeys.length}>
+                多选删除
+              </Button>
+            </Popconfirm>
           </Space>
         </Card>
         <Card>
-          <Table columns={columns} dataSource={dataSource} />
+          <Table rowSelection={rowSelection} columns={columns} dataSource={dataSource} />
         </Card>
       </PageContainer>
 

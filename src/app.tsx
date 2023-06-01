@@ -7,6 +7,7 @@ import employees from '@/data/employees'
 import clients from '@/data/clients'
 import carParts from '@/data/carParts'
 import carPartOrders from '@/data/carPartOrders'
+import clientOrders from '@/data/clientOrders'
 import "./app.css";
 // 全局初始化数据配置，用于 Layout 用户信息和权限初始化
 // 更多信息见文档：https://umijs.org/docs/api/runtime-config#getinitialstate
@@ -16,6 +17,7 @@ export async function getInitialState() {
   localStorage.setItem('clients', JSON.stringify(clients))
   localStorage.setItem('carParts', JSON.stringify(carParts))
   localStorage.setItem('carPartOrders', JSON.stringify(carPartOrders))
+  localStorage.setItem('clientOrders', JSON.stringify(clientOrders))
 
   console.log('getInitialState');
   const user = localStorage.getItem('user');
@@ -64,7 +66,6 @@ export const layout = ({ initialState }) => {
     }
   };
 };
-
 
 export const request = {
   timeout: 1000,

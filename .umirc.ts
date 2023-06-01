@@ -110,6 +110,10 @@ export default defineConfig({
       ],
     },
     {
+      path: '/business',
+      redirect: '/business/businessManagement',
+    },
+    {
       name: '业务流程管理',
       path: '/business',
       icon: 'ScheduleTwoTone',
@@ -121,7 +125,6 @@ export default defineConfig({
         },
         {
           path: 'businessDetail/:id',
-          // component: '@/components/CarPartOrderManagement/CarPartOrderDetail',
           component: '@/components/BusinessManagement/BusinessDetail',
         },
         {
@@ -130,6 +133,10 @@ export default defineConfig({
           component: './EventManagement',
         },
       ],
+    },
+    {
+      path: '/analysis',
+      redirect: '/analysis/employee',
     },
     {
       name: '数据分析',
@@ -151,7 +158,6 @@ export default defineConfig({
           name: '财务收入支出分析',
           path: 'finance',
           component: './FinanceAnalysis',
-          // access:'accessTest',
         },
       ],
     },

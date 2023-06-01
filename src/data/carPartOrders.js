@@ -6,8 +6,7 @@ const data = [
         create_time: '2023/5/22 23:27:20',
         update_time: null,
         finish_time: null,
-        // total: 2000,
-        notes: 'xxxxxxxxxxxxx',
+        notes: '宝马x5发动机配件（气门室盖）和供油冷却配件（液压传感器）库存不足',
         carParts: [
             {
                 id: 1685277486631,
@@ -27,7 +26,6 @@ const data = [
         create_time: '2023/5/22 23:27:20',
         update_time: null,
         finish_time: null,
-        // total: 2000,
         notes: 'xxxxxxxxxxxxx',
         carParts: [
             {
@@ -193,7 +191,7 @@ const data = [
                 gender: '男',
                 department: '配件部',
                 action_time: '2023/5/28 23:27:20',
-                notes: '采购完成',
+                notes: '采购完成，配件已入库',
             },
         ]
     },

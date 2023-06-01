@@ -123,7 +123,6 @@ function EmployeeManagement() {
       key: 'action',
       render: (_, record) => (
         <Space size='middle'>
-          <a>重置密码</a>
           <UpdateEmployee employee={record} setDataSource={setDataSource} />
           <Popconfirm title='确认删除？' onConfirm={() => {
             const newData = JSON.parse(localStorage.getItem('employees')).filter(employee => employee.id !== record.id)
@@ -159,6 +158,8 @@ function EmployeeManagement() {
     selectedRowKeys,
     onChange: onSelectChange,
   };
+  const [open, setOpen] = useState(false);
+  const [confirmLoading, setConfirmLoading] = useState(false);
 
   return (
     <>
@@ -170,18 +171,26 @@ function EmployeeManagement() {
             <Button onClick={search}>查询</Button>
             <Button onClick={reset}>重置</Button>
             <AddEmployee setDataSource={setDataSource} />
-            <Popconfirm title='确认删除？' disabled={!selectedRowKeys.length} onConfirm={() => {
-              console.log(selectedRowKeys);
+            <Popconfirm title='确认删除？' open={open} disabled={!selectedRowKeys.length} okButtonProps={{
+              loading: confirmLoading,
+            }} onConfirm={() => {
+              setConfirmLoading(true);
               let newData = JSON.parse(localStorage.getItem('employees'))
               for (const selectedRowKey of selectedRowKeys) {
                 newData = newData.filter(employee => employee.id !== selectedRowKey)
               }
-              localStorage.setItem('employees', JSON.stringify(newData))
-              setDataSource(newData)
-              setSelectedRowKeys([])
-              message.success('删除成功')
+              setTimeout(() => {
+                setOpen(false);
+                setConfirmLoading(false);
+                localStorage.setItem('employees', JSON.stringify(newData))
+                setDataSource(newData)
+                setSelectedRowKeys([])
+                message.success('删除成功')
+              }, 1000);
             }}>
-              <Button type='primary' danger disabled={!selectedRowKeys.length}>
+              <Button type='primary' danger disabled={!selectedRowKeys.length} onClick={()=>{
+                setOpen(true);
+              }}>
                 多选删除
               </Button>
             </Popconfirm>

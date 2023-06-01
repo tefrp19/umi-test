@@ -89,14 +89,36 @@ const data = [{
                 },
             ]
         }
+    ],
+    insurances: [{
+        id: 1684982129830 * 2+1,
+        key: 1684982129830 * 2+1,
+        name: '第三者责任险',
+        clientId: 1684982129830,
+        clientName: '林雅南',
+        car_number: '川B123456',
+        start_date: '2023-5-06',
+        end_date: '2024-5-06',
+    }, 
+    {
+        id: 1684982129830 * 2+2,
+        key: 1684982129830 * 2+2,
+        name: '第三者责任险',
+        clientId: 1684982129830,
+        clientName: '林雅南',
+        car_number: '川B123456',
+        start_date: '2023-5-07',
+        end_date: '2024-5-08',
+    },
     ]
 }]
 
 const nicknames = ['张吉惟', '林国瑞', '林玟书', '林雅南', '江奕云', '刘柏宏', '阮建安', '林子帆', '夏志豪', '吉茹定']
+const insurances=['第三者责任险','车辆损失险','第三者责任险','交强险']
 for (let i = 1; i < 100; i++) {
     data.push({
-        id: 1684982129830 + i,
-        key: 1684982129830 + i,
+        id: 1685982129830 + i,
+        key: 1685982129830 + i,
         name: nicknames[i % 10],
         gender: i % 2 ? '男' : '女',
         age: 25 + i % 20,
@@ -145,6 +167,27 @@ for (let i = 1; i < 100; i++) {
                     },
                 ]
             }
+        ],
+        insurances: [{
+            id: (1685982129830 + i) * 2+1,
+            key: (1685982129830 + i) * 2+1,
+            name: insurances[i%4],
+            clientId: 1685982129830 + i,
+            clientName: nicknames[i % 10],
+            car_number: `川B${12310 + i}`,
+            start_date: '2023-5-06',
+            end_date: '2024-5-06',
+        }, 
+        {
+            id: (1685982129830 + i) * 2+2,
+            key: (1685982129830 + i) * 2+2,
+            name: insurances[i%3],
+            clientId: 1685982129830,
+            clientName: '林雅南',
+            car_number: `川B${12310 + i}`,
+            start_date: '2023-5-07',
+            end_date: '2024-5-08',
+        },
         ]
     });
 }
