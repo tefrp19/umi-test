@@ -23,7 +23,6 @@ export default ({ setDataSource }) => {
     
     async function handleFinish(values) {
         await waitTime(1000);
-        // console.log(values);
         values.create_time = (new Date).toLocaleString()
         values.status = true
         values.id = +new Date()

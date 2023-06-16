@@ -10,7 +10,7 @@ import {
 
 } from '@ant-design/pro-components';
 import { Button, Form, message, Select } from 'antd';
-
+import { Access, useAccess } from "@umijs/max";
 
 const waitTime = (time = 500) => {
     return new Promise((resolve) => {
@@ -21,9 +21,10 @@ const waitTime = (time = 500) => {
 };
 
 
-export default ({ setCarPartOrderDetail }) => {
+export default ({ carPartOrderDetail, setCarPartOrderDetail }) => {
     const [form] = Form.useForm();
     const carParts = JSON.parse(localStorage.getItem('carParts'))
+    const { carPartDepartmentAccess, financeDepartmentAccess } = useAccess()
 
     function getPartIds() {
         const valueEnum = {}
@@ -61,10 +62,13 @@ export default ({ setCarPartOrderDetail }) => {
         <DrawerForm
             title="添加采购配件"
             trigger={
-                <Button type="primary">
-                    <PlusOutlined />
-                    添加采购配件
-                </Button>
+                <Access accessible={carPartDepartmentAccess}>
+                    <Button type="primary" disabled={carPartOrderDetail?.process?.length !== 0}>
+                        <PlusOutlined />
+                        添加采购配件
+                    </Button>
+                </Access>
+
             }
             form={form}
             autoFocusFirstInput

@@ -1,5 +1,6 @@
 import { PageContainer, ProCard, StatisticCard, Statistic } from '@ant-design/pro-components';
 import Line from './Line';
+import Bar from './Bar';
 
 export default function () {
 
@@ -7,32 +8,22 @@ export default function () {
     <>
       <PageContainer>
         <ProCard
-          title="数据概览"
-          extra="2019年9月28日 星期五"
+          extra={new Date().toLocaleDateString()}
           split='vertical'
           headerBordered
           bordered
         >
           <ProCard split="horizontal">
-            <StatisticCard
-              title="流量走势"
+            <StatisticCard style={{marginBottom:'50px'}}
+              title="工单数量随时间的折线图"
               chart={<Line />}
             />
             <StatisticCard
-              title="流量走势"
-              chart={<Line />}
-            />
-          </ProCard>
-          <ProCard split="horizontal">
-            <StatisticCard
-              title="流量走势"
-              chart={<Line />}
-            />
-            <StatisticCard
-              title="流量走势"
-              chart={<Line />}
+              title="各员工工单数量和金额收入堆叠柱状图"
+              chart={<Bar />}
             />
           </ProCard>
+          
         </ProCard>
       </PageContainer>
     </>

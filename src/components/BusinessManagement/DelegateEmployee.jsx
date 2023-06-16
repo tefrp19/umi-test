@@ -52,7 +52,7 @@ export default ({ clientOrderDetail,setClientOrderDetail }) => {
 
     return (
         <DrawerForm
-            title="添加采购配件"
+            title="委派员工"
             trigger={
                 <Button type="primary" disabled={clientOrderDetail?.process?.length>=4}>
                     <PlusOutlined />

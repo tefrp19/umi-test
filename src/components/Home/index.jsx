@@ -48,7 +48,7 @@ export default function() {
               <StatisticCard
                 statistic={{
                   title: '客户数量',
-                  value: '431',
+                  value: '101',
                   suffix: '名',
                 }}
               />

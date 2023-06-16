@@ -152,5 +152,12 @@ const data = [
         ]
     },
 ];
+for (let i = 4; i <= 100; i++) {
+    data.push({
+        ...data[i-1],
+        id: data[i-1].id+1,
+        key: data[i-1].key+1,
+    });
+}
 
 export default data

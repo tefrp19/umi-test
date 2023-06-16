@@ -13,7 +13,6 @@ function EmployeeManagement() {
 
   useEffect(() => {
     const localData = localStorage.getItem('employees')
-
     setDataSource(JSON.parse(localData))
 
   }, []);
@@ -188,7 +187,7 @@ function EmployeeManagement() {
                 message.success('删除成功')
               }, 1000);
             }}>
-              <Button type='primary' danger disabled={!selectedRowKeys.length} onClick={()=>{
+              <Button type='primary' danger disabled={!selectedRowKeys.length} onClick={() => {
                 setOpen(true);
               }}>
                 多选删除

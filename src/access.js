@@ -15,16 +15,16 @@ export default function (initialState) {
   const department = user?.department
   // console.log(department);
   return {
-    accessManagement: department === 'admin',
-    departmentManagement: department === 'admin',
-    employeeManagement: ['admin', '人事部'].includes(department),
-    // 人事部部权限
+    adminAccess: department === 'admin',
+    // 人事部权限
     personnelDepartmentAccess: ['admin', '人事部'].includes(department),
+    // 客户部权限
+    clientDepartmentAccess: ['admin', '客户部'].includes(department),
     // 配件部权限
     carPartDepartmentAccess: ['admin', '配件部'].includes(department),
+    // 售后部权限
+    serviceDepartmentAccess: ['admin', '售后部'].includes(department),
     // 财务部权限
     financeDepartmentAccess: ['admin', '财务部'].includes(department),
-    //  
-    canReadEmployeeManagement: ['admin', '人事部'].includes(department)
   };
 }

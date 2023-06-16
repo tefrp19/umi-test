@@ -2,24 +2,25 @@ import { history, useParams } from '@umijs/max';
 import { PageContainer } from '@ant-design/pro-components';
 import { Button, Card, Space, Steps } from 'antd';
 import EmployeeActionTable from './EmployeeActionTable';
-import DelegateEmployee from './DelegateEmployee'
-import { useState, useEffect } from "react";
-export default function () {
+import DelegateEmployee from './DelegateEmployee';
+import { useState, useEffect } from 'react';
+
+export default function() {
   const params = useParams();
-  const [clientOrderDetail, setClientOrderDetail] = useState({})
+  const [clientOrderDetail, setClientOrderDetail] = useState({});
 
   console.log(params);
   useEffect(() => {
-    const clientOrders = JSON.parse(localStorage.getItem('clientOrders'))
-    const clientOrderDetail = clientOrders.find(c => c.id === Number(params.id))
-    setClientOrderDetail(clientOrderDetail)
+    const clientOrders = JSON.parse(localStorage.getItem('clientOrders'));
+    const clientOrderDetail = clientOrders.find(c => c.id === Number(params.id));
+    setClientOrderDetail(clientOrderDetail);
 
-  }, [])
+  }, []);
   return (
     <>
       <PageContainer>
         <Card title='客户工单流程'
-          style={{ padding: '0 20px', marginBottom: '50px' }}>
+              style={{ padding: '0 20px', marginBottom: '50px' }}>
           <Steps
             current={clientOrderDetail?.process?.length}
             items={[
@@ -62,11 +63,13 @@ export default function () {
                   3.客户部负责回访
                   */}
                 <DelegateEmployee clientOrderDetail={clientOrderDetail} setClientOrderDetail={setClientOrderDetail} />
+                {/*datePicker*/}
+                <Button>延长保修/保险</Button>
                 <Button type='primary' danger>
                   删除订单
                 </Button>
-                <Button onClick={()=>{
-                  history.push('/business/businessManagement')
+                <Button onClick={() => {
+                  history.push('/business/businessManagement');
                 }}>
                   返回
                 </Button>

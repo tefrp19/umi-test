@@ -176,7 +176,7 @@ export default function () {
           {/*订单详情表格*/}
           <Card style={{ marginBottom: '20px' }}>
             <Space>
-              <AddCarPart setCarPartOrderDetail={setCarPartOrderDetail} />
+              <AddCarPart carPartOrderDetail={carPartOrderDetail} setCarPartOrderDetail={setCarPartOrderDetail} />
             </Space>
           </Card>
           <Card style={{ marginBottom: '20px' }}>

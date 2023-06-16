@@ -81,7 +81,8 @@ const data = [
 ];
 
 const nicknames = ['张吉惟', '林国瑞', '林玟书', '林雅南', '江奕云', '刘柏宏', '阮建安', '林子帆', '夏志豪', '吉茹定']
-for (let i = 7; i < 100; i++) {
+const departments=['客户部','人事部','配件部','售后部','财务部']
+for (let i = 7; i <= 59; i++) {
     data.push({
         id: 1684982129820 + i,
         key: 1684982129820 + i,
@@ -92,7 +93,7 @@ for (let i = 7; i < 100; i++) {
         phone_number: '19114031807',
         create_time: `2023/5/1${i%10} 23:27:20`,
         update_time: `2023/5/1${i%10} 23:27:20`,
-        department: '客户部',
+        department: departments[i%5],
         status: true,
     });
 }
