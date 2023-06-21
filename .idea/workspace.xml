@@ -5,23 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="022cd9c9-de06-4810-bb85-57d8b7250261" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.umirc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.umirc.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/access.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/access.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BusinessManagement/BusinessDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BusinessManagement/BusinessDetail.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BusinessManagement/DelegateEmployee.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BusinessManagement/DelegateEmployee.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CarPartOrderManagement/AddCarPart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CarPartOrderManagement/AddCarPart.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CarPartOrderManagement/CarPartOrderDetail.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CarPartOrderManagement/CarPartOrderDetail.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ClientAnalysis/Line.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ClientAnalysis/Line.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ClientAnalysis/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ClientAnalysis/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EmployeeAnalysis/Line.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EmployeeAnalysis/Line.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EmployeeAnalysis/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EmployeeAnalysis/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EmployeeManagement/AddEmployee.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EmployeeManagement/AddEmployee.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EmployeeManagement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EmployeeManagement/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/carPartOrders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/carPartOrders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/clientOrders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/clientOrders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/employees.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/employees.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mock/userAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AccessManagement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AccessManagement/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CarManagement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CarManagement/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CarPartManagement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CarPartManagement/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CarPartOrderManagement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CarPartOrderManagement/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ClientManagement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ClientManagement/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DepartmentManagement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DepartmentManagement/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InsuranceManagement/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InsuranceManagement/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/global.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/demo/UserController.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/demo/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/demo/typings.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/employee/index.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,22 +51,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\TEfrp\\project\\umi-test\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "pnpm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "D:\\TEfrp\\project\\umi-test\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\TEfrp\project\umi-test\src\components\EmployeeAnalysis" />
@@ -127,7 +128,9 @@
       <workItem from="1685835457739" duration="2799000" />
       <workItem from="1686031731632" duration="216000" />
       <workItem from="1686031989785" duration="207000" />
-      <workItem from="1686920728597" duration="282000" />
+      <workItem from="1686920728597" duration="3095000" />
+      <workItem from="1687051103152" duration="3415000" />
+      <workItem from="1687306567678" duration="280000" />
     </task>
     <servers />
   </component>
@@ -135,6 +138,11 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="b11ac859-c03e-4e7e-ac42-13409e389507" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="RECENT_FILTERS">
       <map>
         <entry key="User">
@@ -155,12 +163,39 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="b11ac859-c03e-4e7e-ac42-13409e389507">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>

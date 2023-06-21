@@ -2,7 +2,6 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input, message } from 'antd';
 import loginBg from './login-bg.jpg';
 import { history, useRequest ,useModel} from '@umijs/max';
-import { login } from '@/services/employee';
 import { useEffect } from 'react';
 import employees from "@/data/employees";
 function Login() {

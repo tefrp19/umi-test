@@ -1,4 +1,3 @@
-import { getEmployees } from '@/services/employee';
 import { Space, Table, Tag, Switch, Input, Button, Popconfirm, Card } from 'antd';
 import { useEffect, useState } from 'react';
 import { history } from '@umijs/max';

@@ -1,5 +1,7 @@
+# 项目所需环境
+- node 版本18.12.1
+- pnpm 版本8.5.1
 
-
-# README
-
-`@umijs/max` 模板项目，更多功能参考 [Umi Max 简介](https://umijs.org/docs/max/introduce)
+# 项目启动步骤
+1. `pnpm i` 安装依赖
+2. `pnpm run dev` 运行项目
